@@ -14,8 +14,14 @@ if (window.localStorage.getItem("CurrentEpisode")) {
 
 function Page_Load() {
     document.getElementsByClassName("VideoPlayer").item(0).src = Episode;
+    document.getElementsByClassName("Episodes").item(0).value = Episode;
 }
 
 function Page_Unload() {
     window.localStorage.setItem("CurrentEpisode", Episode)
+}
+
+function EpisodeSelect() {
+    Episode = document.getElementsByClassName("Episodes").item(0).value;
+    document.getElementsByClassName("VideoPlayer").item(0).src = Episode;
 }

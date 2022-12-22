@@ -88,3 +88,25 @@ body {
     left: 15.5rem;
     z-index: 6;
 }
+
+.Episodes {
+    position: relative;
+    z-index: 50;
+    top: -1rem;
+    background-color: black;
+    border: 0;
+    color: white;
+    font-size: 1.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Episodes:hover {
+    position: relative;
+    z-index: 50;
+    top: -1rem;
+    background-color: rgb(39, 38, 38);
+    border: 0;
+    color: rgb(198, 246, 255);
+    font-size: 1.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

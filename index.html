@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="css/index.css">
         <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
 
-        <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+        <title>EmpireZ - Streaming</title>
     </head>
 
     <body onload="Page_Load()" onunload="Page_Unload()">
@@ -17,16 +17,13 @@
 
         <div class="Center">
             <h1>| Video Player |</h1>
+            
+            <select onchange="EpisodeSelect()" name="Episodes" class="Episodes">
+                <option value="https://embed.wave.video/U0ADydR2Xlsa4M8Z">Episode 1</option>
+                <option value="https://embed.wave.video/szETBpxLiCE1cJCm">Episode 2</option>
+              </select>
+
         </div>
-        
-        <amp-ad width="100vw" height="320"
-            type="adsense"
-            data-ad-client="ca-pub-1282485383646277"
-            data-ad-slot="3361778510"
-            data-auto-format="rspv"
-            data-full-width="">
-            <div overflow=""></div>
-        </amp-ad>
 
     </body>
 
