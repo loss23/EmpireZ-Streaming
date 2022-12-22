@@ -1,5 +1,6 @@
 body {
     background-color: rgb(34, 34, 34);
+    overflow: hidden;
 }
 
 .Navbar {
@@ -28,7 +29,7 @@ body {
 .Navbar iframe {
     position: relative;
     top: -8.25rem;
-    left: 68.9rem;
+    left: 70rem;
     border: 0rem;
     height: 5rem;
 }
