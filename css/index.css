@@ -1,0 +1,78 @@
+body {
+    background-color: rgb(34, 34, 34);
+}
+
+.Navbar {
+    background-color: rgb(81, 81, 81);
+    position: fixed;
+    top: 0rem;
+    width: 100%;
+    right: 0rem;
+    left: 0rem;
+    height: 2.3rem;
+    z-index: 5;
+}
+
+.Navbar h1 {
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    text-align: left;
+    position: relative;
+    top: -.8rem;
+    right: -.2rem;
+}
+
+.Navbar h1:hover {
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    text-align: left;
+    position: relative;
+    top: -.8rem;
+    cursor: pointer;
+}
+
+.home_button {
+    color: rgb(0, 208, 255);
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    text-align: left;
+    position: relative;
+    top: -3.7rem;
+    left: 12.3rem;
+}
+
+.home_button:hover {
+    color: rgb(144, 235, 255);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    text-align: left;
+    position: relative;
+    top: -3.7rem;
+    left: 12.3rem;
+    cursor: grab;
+}
+
+.Center {
+    background-color: rgb(29, 29, 29);
+    color: rgb(1, 182, 227);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    width: 75rem;
+    height: 35rem;
+    top: 2.2rem;
+    left: 2rem;
+    text-align: center;
+    border-radius: 2.4rem;
+}
+
+.VideoPlayer {
+    width: 50rem;
+    height: 40rem;
+    border-radius: 2rem;
+    position: fixed;
+    top: 8rem;
+    left: 15.5rem;
+}
