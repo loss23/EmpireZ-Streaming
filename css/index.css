@@ -23,6 +23,13 @@ body {
     right: -.2rem;
 }
 
+.Navbar iframe {
+    position: absolute;
+    top: -2.8rem;
+    right: -9rem;
+    border: 0rem;
+}
+
 .Navbar h1:hover {
     color: rgb(255, 255, 255);
     font-family: 'Times New Roman', Times, serif;
