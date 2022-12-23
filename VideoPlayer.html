@@ -1,13 +1,14 @@
  <!DOCTYPE html>
 <link>
     <head>
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/VideoPlayer.css">
         <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
+
         
         <title>EmpireZ - Streaming</title>
     </head>
 
-    <body>
+    <body onload="Page_Load()" onunload="Page_Unload()">
 
         <div class="Navbar">
             <h1 onclick="index()">| EmpireZ.online |</h1>
@@ -16,12 +17,23 @@
         </div>
 
         <div class="Center">
-            <h1>| Index |</h1>
+            <h1>| Video Player |</h1>
+            
+            <select onchange="ShowSelect()" name="Shows" class="Shows">
+                <option value="RickAndMorty">Rick And Morty</option>
+            </select>
+
+            <select onchange="EpisodeSelect()" name="Episodes" class="Episodes">
+
+            </select>
+
         </div>
 
     </body>
 
 </html>
 
+<iframe class="VideoPlayer" frameborder="0" allow="fullscreen" scrolling="no"></iframe>
 <script src="js/index.js"></script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1282485383646277" crossorigin="anonymous"></script>
