@@ -84,7 +84,7 @@ body {
     height: 40rem;
     border-radius: 2rem;
     position: relative;
-    top: -28rem;
+    top: -30rem;
     left: 15.5rem;
     z-index: 6;
 }
@@ -115,6 +115,18 @@ body {
     position: relative;
     z-index: 50;
     top: -1rem;
+    background-color: black;
+    border: 0;
+    color: white;
+    font-size: 1.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Stream {
+    position: relative;
+    z-index: 50;
+    top: .2rem;
+    left: 36rem;
     background-color: black;
     border: 0;
     color: white;
