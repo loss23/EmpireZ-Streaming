@@ -3,6 +3,11 @@ body {
     overflow: hidden;
 }
 
+.logo {
+    width: 8rem;
+    z-index: 2555;
+}
+
 .Navbar {
     background-color: rgb(81, 81, 81);
     position: fixed;
@@ -126,11 +131,4 @@ body {
     z-index: 50;
     bottom: 5rem;
     left: 50rem;
-}
-
-.Ads5 {
-    position: absolute;
-    z-index: 50;
-    bottom: 21.5rem;
-    left: 18rem;
 }
