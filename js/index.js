@@ -1,6 +1,6 @@
-const ShowList = {
+const wave_ShowList = {
     "RickAndMorty": ["https://embed.wave.video/U0ADydR2Xlsa4M8Z","https://embed.wave.video/szETBpxLiCE1cJCm"],
-    "FamilyGuy": ["https://embed.wave.video/1v3TRgupkK55szpC"]
+    "FamilyGuy": ["https://embed.wave.video/1v3TRgupkK55szpC", "https://embed.wave.video/1f6rtAHOBbGs3BG7"]
 }
 
 function index() {
@@ -30,11 +30,11 @@ if (window.localStorage.getItem("CurrentShow")) {
 function Page_Load() {
     document.getElementsByClassName("Shows").item(0).value = Show;
 
-    for (var i = 0; i < ShowList[Show].length; i++) {
+    for (var i = 0; i < wave_ShowList[Show].length; i++) {
         var x = document.createElement("option");
         var v = document.getElementsByClassName("Episodes").item(0).length + 1;
         x.text = "Episode " + v;
-        x.value = ShowList[Show][v-1]
+        x.value = wave_ShowList[Show][v-1]
         document.getElementsByClassName("Episodes").item(0).appendChild(x);
     }
 
