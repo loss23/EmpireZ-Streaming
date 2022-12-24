@@ -78,3 +78,31 @@ body {
     text-align: center;
     border-radius: 2.4rem;
 }
+
+.Ads {
+    position: absolute;
+    z-index: 50;
+    bottom: -.5rem;
+    left: 24.5rem;
+}
+
+.Ads2 {
+    position: absolute;
+    z-index: 50;
+    bottom: 5rem;
+    left: 10rem;
+}
+
+.Ads3 {
+    position: absolute;
+    z-index: 50;
+    bottom: 5rem;
+    left: 30rem;
+}
+
+.Ads4 {
+    position: absolute;
+    z-index: 50;
+    bottom: 5rem;
+    left: 50rem;
+}

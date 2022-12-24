@@ -84,7 +84,7 @@ body {
     height: 40rem;
     border-radius: 2rem;
     position: relative;
-    top: -30rem;
+    top: -28rem;
     left: 15.5rem;
     z-index: 6;
 }
@@ -132,4 +132,11 @@ body {
     color: white;
     font-size: 1.2rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Ads {
+    position: absolute;
+    z-index: 50;
+    bottom: -.5rem;
+    left: 24.5rem;
 }
