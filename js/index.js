@@ -54,6 +54,6 @@ function EpisodeSelect() {
 
 function ShowSelect() {
     Show = document.getElementsByClassName("Shows").item(0).value;
-    Episode = ShowList[Show][0];
+    Episode = wave_ShowList[Show][0];
     document.location.reload(true);
 }
