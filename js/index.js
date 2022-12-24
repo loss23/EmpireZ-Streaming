@@ -11,6 +11,10 @@ function home() {
     window.location.assign("VideoPlayer.html");
 }
 
+function info() {
+    window.location.assign("info.html");
+}
+
 if (window.localStorage.getItem("CurrentEpisode")) {
     Episode = window.localStorage.getItem("CurrentEpisode");
 }else {

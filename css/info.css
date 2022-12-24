@@ -17,8 +17,7 @@ body {
 }
 
 .Navbar h1 {
-    color: rgb(144, 235, 255);
-    text-decoration: underline;
+    color: rgb(255, 255, 255);
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     text-align: left;
@@ -29,7 +28,7 @@ body {
 
 .Navbar iframe {
     position: relative;
-    top: -8.25rem;
+    top: -11.26rem;
     left: 70rem;
     border: 0rem;
     height: 5rem;
@@ -67,7 +66,8 @@ body {
 }
 
 .info_button {
-    color: rgb(255, 255, 255);
+    color: rgb(144, 235, 255);
+    text-decoration: underline;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     text-align: left;
@@ -126,11 +126,4 @@ body {
     z-index: 50;
     bottom: 5rem;
     left: 50rem;
-}
-
-.Ads5 {
-    position: absolute;
-    z-index: 50;
-    bottom: 21.5rem;
-    left: 18rem;
 }
