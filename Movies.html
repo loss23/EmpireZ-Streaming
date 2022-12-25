@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+<link>
+    <head>
+        <link rel="stylesheet" href="css/VideoPlayer.css">
+        <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="viewport" content="height=device-height, initial-scale=1"/>
+
+        <title>EmpireZ - Streaming</title>
+    </head>
+
+    <body class="Background" onload="Page_Load()" onunload="Page_Unload()">
+
+ 
+
+            <div class="container">
+                  <ul class="Nav_Text">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Shows.html">Shows</a></li>
+                    <li><a href="Movies.html">Movies</a></li>
+                    <li><a href="info.html">FAQ</a></li>
+                  </ul>
+    
+              </div>
+
+        <div class="Center">
+            <h1> Movies </h1>
+            
+            <select onchange="ShowSelect()" name="Shows" class="Shows">
+                <option value="RickAndMorty">Rick And Morty</option>
+                <option value="Spider-Man Far From Home">Spider-Man Far From Home</option>
+            </select>
+
+
+        </div>
+
+
+    </body>
+
+</html>
+
+<iframe class="VideoPlayer" frameborder="0" allow="fullscreen" scrolling="no"></iframe>
+<script src="js/index.js"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1282485383646277" crossorigin="anonymous"></script>
