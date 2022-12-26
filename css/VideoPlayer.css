@@ -122,12 +122,11 @@ header::after {
 }
 
 .VideoPlayer {
-    width: 50rem;
-    height: 40rem;
-    border-radius: 2rem;
+    width: 45rem;
+    height: 32rem;
     position: relative;
-    top: -18rem;
-    left: 33rem;
+    top: -19rem;
+    left: 35rem;
     z-index: 6;
 }
 
@@ -161,6 +160,17 @@ header::after {
     color: white;
     font-size: 1.2rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Seasons {
+  position: relative;
+  z-index: 50;
+  top: -1rem;
+  background-color: black;
+  border: 0;
+  color: white;
+  font-size: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .Episodes:hover {

@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <link>
     <head>
         <link rel="stylesheet" href="css/VideoPlayer.css">
@@ -30,6 +30,11 @@
             <select onchange="ShowSelect()" name="Shows" class="Shows">
                 <option value="RickAndMorty">Rick And Morty</option>
                 <option value="FamilyGuy">Family Guy</option>
+                <option value="Spongebob">Spongebob</option>
+            </select>
+
+            <select onchange="SeasonSelect()" name="Seasons" class="Seasons">
+
             </select>
 
             <select onchange="EpisodeSelect()" name="Episodes" class="Episodes">
@@ -43,7 +48,7 @@
 
 </html>
 
-<iframe class="VideoPlayer" frameborder="0" allow="fullscreen" scrolling="no"></iframe>
+<video class="VideoPlayer" frameborder="0" allow="fullscreen" controls scrolling="no"></video>
 <script src="js/index.js"></script>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1282485383646277" crossorigin="anonymous"></script>
