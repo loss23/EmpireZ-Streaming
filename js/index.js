@@ -71,6 +71,7 @@ function Page_Load() {
     document.getElementsByClassName("VideoPlayer").item(0).src = Episode;
     document.getElementsByClassName("Episodes").item(0).value = Episode;
     document.getElementsByClassName("Seasons").item(0).value = Season;
+    document.getElementsByClassName("VideoPlayer").item(0).currentTime = localStorage.getItem("Time");
 }
 
 function Page_Unload() {
