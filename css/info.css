@@ -53,8 +53,9 @@ header::after {
 
 
 .Nav_Text {
-    text-align: left;
-
+  text-align: left;
+  position: relative;
+  left: -5.8rem;
 }
 
 .Nav_Text ul {
@@ -122,17 +123,17 @@ header::after {
 }
 
 .Center {
-    background-color: #1b1b1b;
-    color: rgb(255, 255, 255);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    position: relative;
-    padding-top: 2rem;
-    width: 75rem;
-    height: 40rem;
-    top: 15rem;
-    left: 20rem;
-    text-align: center;
-    border-radius: 10px;
+  background-color: #1b1b1b;
+  color: rgb(255, 255, 255);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  position: relative;
+  padding-top: 2rem;
+  width: 75rem;
+  height: 28rem;
+  top: 10rem;
+  left: 2rem;
+  text-align: center;
+  border-radius: 10px;
 }
 
 

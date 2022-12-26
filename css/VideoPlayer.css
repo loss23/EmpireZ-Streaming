@@ -38,8 +38,9 @@ header::after {
 
 
 .Nav_Text {
-    text-align: left;
-
+  text-align: left;
+  position: relative;
+  left: -5.8rem;
 }
 
 .Nav_Text ul {
@@ -108,25 +109,30 @@ header::after {
 }
 
 .Center {
-    background-color: #1b1b1b;
-    color: rgb(255, 255, 255);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    position: relative;
-    padding-top: 2rem;
-    width: 75rem;
-    height: 40rem;
-    top: 15rem;
-    left: 20rem;
-    text-align: center;
-    border-radius: 10px;
+  background-color: #1b1b1b;
+  color: rgb(255, 255, 255);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  position: relative;
+  padding-top: 2rem;
+  width: 75rem;
+  height: 28rem;
+  top: 10rem;
+  left: 2rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.Center h1 {
+  position: relative;
+  top: -3.3rem;
 }
 
 .VideoPlayer {
     width: 45rem;
-    height: 32rem;
+    height: 24rem;
     position: relative;
-    top: -19rem;
-    left: 35rem;
+    top: -15rem;
+    left: 17rem;
     z-index: 6;
 }
 
@@ -154,7 +160,7 @@ header::after {
 .Episodes {
     position: relative;
     z-index: 50;
-    top: -1rem;
+    top: -4.5rem;
     background-color: black;
     border: 0;
     color: white;
@@ -165,7 +171,7 @@ header::after {
 .Seasons {
   position: relative;
   z-index: 50;
-  top: -1rem;
+  top: -4.5rem;
   background-color: black;
   border: 0;
   color: white;
@@ -176,7 +182,7 @@ header::after {
 .Episodes:hover {
     position: relative;
     z-index: 50;
-    top: -1rem;
+    top: -4.5rem;
     background-color: rgb(39, 38, 38);
     border: 0;
     color: rgb(198, 246, 255);
@@ -187,19 +193,7 @@ header::after {
 .Shows {
     position: relative;
     z-index: 50;
-    top: -1rem;
-    background-color: black;
-    border: 0;
-    color: white;
-    font-size: 1.2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.Stream {
-    position: relative;
-    z-index: 50;
-    top: .2rem;
-    left: 36rem;
+    top: -4.5rem;
     background-color: black;
     border: 0;
     color: white;

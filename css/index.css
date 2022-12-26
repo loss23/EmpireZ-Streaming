@@ -52,7 +52,8 @@ header::after {
 
 .Nav_Text {
     text-align: left;
-
+    position: relative;
+    left: -5.8rem;
 }
 
 .Nav_Text ul {
@@ -126,9 +127,9 @@ header::after {
     position: relative;
     padding-top: 2rem;
     width: 75rem;
-    height: 40rem;
-    top: 15rem;
-    left: 20rem;
+    height: 28rem;
+    top: 10rem;
+    left: 2rem;
     text-align: center;
     border-radius: 10px;
 }
