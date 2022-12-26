@@ -16,7 +16,7 @@ body {
 }
 
 .Background {
-    background-image: url("file:///C:/Users/eagle/Downloads/Backimg.png");
+    background-image: url("../src/Backimg.png");
     background-repeat: space;
     height: 100vh;
     background-size: cover;
