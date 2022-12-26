@@ -1,7 +1,10 @@
 const wave_ShowList = {
     "RickAndMorty": ["https://embed.wave.video/U0ADydR2Xlsa4M8Z","https://embed.wave.video/szETBpxLiCE1cJCm",],
     "FamilyGuy": ["https://embed.wave.video/1v3TRgupkK55szpC", "https://embed.wave.video/1f6rtAHOBbGs3BG7"],
-    "Spider-Man Far From Home": ["https://rb.gy/3o90f4"]
+}
+
+const MovieList = {
+    
 }
 
 function index() {
@@ -18,8 +21,10 @@ function info() {
 
 if (window.localStorage.getItem("CurrentEpisode")) {
     Episode = window.localStorage.getItem("CurrentEpisode");
+    Movie = window.localStorage.getItem("CurrentMovie");
 }else {
     Episode = "https://embed.wave.video/U0ADydR2Xlsa4M8Z";
+    Movie = "https://embed.wave.video/szETBpxLiCE1c";
 }
 
 if (window.localStorage.getItem("CurrentShow")) {
