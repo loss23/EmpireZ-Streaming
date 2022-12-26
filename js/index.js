@@ -11,7 +11,7 @@ const DataBase = {
         }
     },
     "Movies": {
-        "TEST": ""
+        "Spongebob": ["https://udisk16.watchanimesub.net/getvid?evid=S5f9LvR43OCxMS4YAHCUyAzHa1T2likKYJKWdYtQxkNHkKSaQc_2ajoC0L8Dxa9_Ugt7B2tfmOAmTKQ6n-otLctFCfflGGXPB3xo-rl4pmrMLq70Pe2G7GmSsZvjdfeiQ7Z8eekYLdSOfu4UfG9AQhwP4ZSaeG80PJvH8ghkuZtNP151aA-6xbhUGQcXwLg6IhLTzbvqmtR0t_kcknyBSuk5HZVyrftzF-aM-HYkJvWvOZfUzg6nq2jp_4Hrd9r7rAVWcwZ2wROo8y8FXJvNhEmobSG1R09IGOXe0LxkrN0DpqmcUouZ9cFGrL5QNm7GttREt37IfvSnM-aBN0YTUheXJXqfjN3StX6_ytwQ0X_oVndG3yvRe2CqEZru8OHiMzbPm1CGlJ2E9ootpmftJhzXPgSccOnBQiRfQ-2qpCi_BpDstFdrgbbq304v_UYf"]
     }
 }
 
@@ -48,6 +48,17 @@ if (window.localStorage.getItem("CurrentSeason")) {
     Season = "1";
 }
 
+if (window.localStorage.getItem("CurrentMovie")) {
+    Movie = DataBase["Movies"][window.localStorage.getItem("CurrentMovie")];
+}else {
+    Movie = DataBase["Movies"]["Spongebob"];
+}
+
+
+function Page_Load2() {
+    document.getElementsByClassName("Movies").item(0).value = DataBase["Movies"][Movie];
+}
+
 
 function Page_Load() {
     document.getElementsByClassName("Shows").item(0).value = Show;
@@ -82,6 +93,11 @@ function Page_Unload() {
     window.localStorage.setItem("CurrentEpisodeNumber", EpNumber);
 }
 
+function Page_Unload2() {
+    Movie = document.getElementsByClassName("Movie").item(0).value;
+    window.localStorage.setItem("CurrentMovie", Movie)
+}
+
 function EpisodeSelect() {
     Episode = document.getElementsByClassName("Episodes").item(0).value;
     EpNumber = DataBase["Shows"][Show][Season].indexOf(Episode);
@@ -101,6 +117,13 @@ function ShowSelect() {
 function SeasonSelect() {
     Season = document.getElementsByClassName("Seasons").item(0).value;
     Episode = DataBase["Shows"][Show][Season][0];
+    window.localStorage.setItem("Time", 0)
+    document.location.reload(true);
+}
+
+function MovieSelect() {
+    Movie = DataBase["Movies"][document.getElementsByClassName("Movies").item(0).value];
+    window.localStorage.setItem("CurrentMovie", Movie)
     window.localStorage.setItem("Time", 0)
     document.location.reload(true);
 }
