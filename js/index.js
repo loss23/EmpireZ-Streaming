@@ -30,8 +30,10 @@ function info() {
 
 if (window.localStorage.getItem("CurrentEpisode")) {
     Episode = window.localStorage.getItem("CurrentEpisode");
+    EpNumber = window.localStorage.getItem("CurrentEpisodeNumber");
 }else {
     Episode = DataBase["Shows"]["RickAndMorty"]["1"][1]
+    EpNumber = 0
 }
 
 if (window.localStorage.getItem("CurrentShow")) {
@@ -69,28 +71,51 @@ function Page_Load() {
     document.getElementsByClassName("VideoPlayer").item(0).src = Episode;
     document.getElementsByClassName("Episodes").item(0).value = Episode;
     document.getElementsByClassName("Seasons").item(0).value = Season;
+
+    if (window.localStorage.getItem("Time")) {
+        document.getElementsByClassName("VideoPlayer").item(0).currentTime = window.localStorage.getItem("Time");
+    }
 }
 
 function Page_Unload() {
     window.localStorage.setItem("CurrentEpisode", Episode)
     window.localStorage.setItem("CurrentShow", Show)
     window.localStorage.setItem("CurrentSeason", Season)
+    window.localStorage.setItem("Time", document.getElementsByClassName("VideoPlayer").item(0).currentTime);
+    window.localStorage.setItem("CurrentEpisodeNumber", EpNumber);
 }
 
 function EpisodeSelect() {
     Episode = document.getElementsByClassName("Episodes").item(0).value;
+    EpNumber = DataBase["Shows"][Show][Season].indexOf(Episode);
     document.getElementsByClassName("VideoPlayer").item(0).src = Episode;
+    window.localStorage.setItem("Time", 0)
+    window.localStorage.setItem("CurrentEpisodeNumber", EpNumber)
 }
 
 function ShowSelect() {
     Show = document.getElementsByClassName("Shows").item(0).value;
     Season = "1";
     Episode = DataBase["Shows"][Show][Season][0];
+    window.localStorage.setItem("Time", 0)
     document.location.reload(true);
 }
 
 function SeasonSelect() {
     Season = document.getElementsByClassName("Seasons").item(0).value;
     Episode = DataBase["Shows"][Show][Season][0];
+    window.localStorage.setItem("Time", 0)
     document.location.reload(true);
+}
+
+function EpisodeEnd() {
+    document.getElementsByClassName("Popup").item(0).style.display = "block";
+    setTimeout(() => {
+        EpNumber++;
+        Episode = DataBase["Shows"][Show][Season][EpNumber];
+        document.getElementsByClassName("VideoPlayer").item(0).src = Episode;
+        window.localStorage.setItem("Time", 0)
+        document.getElementsByClassName("Episodes").item(0).value = Episode;
+        document.getElementsByClassName("Popup").item(0).style.display = "none";
+    }, 4000);
 }

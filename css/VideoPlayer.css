@@ -213,3 +213,14 @@ header::after {
     bottom: -.5rem;
     left: 24.5rem;
 }
+
+.Popup {
+  color: rgb(255, 0, 0);
+  font-size: 1.8rem;
+  background-color: #4a0000;
+  z-index: 2500000;
+  position: absolute;
+  top: 0rem;
+  display: none;
+  left: 0rem;
+}
