@@ -15,14 +15,14 @@ body {
 }
 
 .container {
-    background-color: #1b1b1b;
-    position: fixed;
-    top: 0rem;
-    width: 100%;
-    right: 0rem;
-    left: 0rem;
-    height: 8rem;
-    z-index: 25;
+  background-color: #1b1b1b;
+  position: fixed;
+  top: 0rem;
+  width: 100%;
+  right: 0rem;
+  left: 0rem;
+  height: 3rem;
+  z-index: 25;
 }
 
 header {
@@ -40,6 +40,7 @@ header::after {
 .Nav_Text {
   text-align: left;
   position: relative;
+  top: -1.5rem;
   left: -5.8rem;
 }
 
@@ -115,8 +116,8 @@ header::after {
   position: relative;
   padding-top: 2rem;
   width: 75rem;
-  height: 28rem;
-  top: 10rem;
+  height: 32rem;
+  top: 4rem;
   left: 2rem;
   text-align: center;
   border-radius: 10px;
@@ -129,9 +130,9 @@ header::after {
 
 .VideoPlayer {
     width: 45rem;
-    height: 24rem;
+    height: 28rem;
     position: relative;
-    top: -15rem;
+    top: -25rem;
     left: 17rem;
     z-index: 6;
 }

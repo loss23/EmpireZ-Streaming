@@ -4,15 +4,8 @@ body {
 }
 
 .logo {
-    width: 8rem;
+    width: 24rem;
     z-index: 2555;
-}
-
-
-.Logoimg {
-    display: block;
-    height: 600px;
-    margin-top: -185px;
 }
 
 .Background {
@@ -26,16 +19,15 @@ body {
 
 }
 
-
 .container {
-    background-color: #1b1b1b;
-    position: fixed;
-    top: 0rem;
-    width: 100%;
-    right: 0rem;
-    left: 0rem;
-    height: 8rem;
-    z-index: 25;
+  background-color: #1b1b1b;
+  position: fixed;
+  top: 0rem;
+  width: 100%;
+  right: 0rem;
+  left: 0rem;
+  height: 3rem;
+  z-index: 25;
 }
 
 header {
@@ -51,9 +43,10 @@ header::after {
 
 
 .Nav_Text {
-    text-align: left;
-    position: relative;
-    left: -5.8rem;
+  text-align: left;
+  position: relative;
+  top: -1.5rem;
+  left: -5.8rem;
 }
 
 .Nav_Text ul {
@@ -127,8 +120,8 @@ header::after {
     position: relative;
     padding-top: 2rem;
     width: 75rem;
-    height: 28rem;
-    top: 10rem;
+    height: 32rem;
+    top: 4rem;
     left: 2rem;
     text-align: center;
     border-radius: 10px;
