@@ -110,7 +110,7 @@ header::after {
 }
 
 .Center {
-  background-color: #1b1b1b;
+  background-color: #1b1b1bc3;
   color: rgb(255, 255, 255);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   position: relative;
