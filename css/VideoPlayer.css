@@ -130,7 +130,7 @@ header::after {
 
 .VideoPlayer {
     width: 45rem;
-    height: 28rem;
+    height: auto;
     position: relative;
     top: -25rem;
     left: 17rem;
