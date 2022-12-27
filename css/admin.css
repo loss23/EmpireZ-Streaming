@@ -154,3 +154,9 @@ header::after {
     bottom: 5rem;
     left: 50rem;
 }
+
+.codespace-link {
+  position: absolute;
+  top: 95%;
+  left: 48%;
+}
