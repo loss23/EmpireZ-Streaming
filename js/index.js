@@ -4,7 +4,7 @@ const DataBase = {
             "1": ["https://s3.tebi.io/index/RickAndMorty1.mp4", "https://s3.tebi.io/index/RickAndMorty2.mp4"]
         },
         "FamilyGuy": {
-            "1" : ["https://embed.wave.video/1v3TRgupkK55szpC", "https://embed.wave.video/1f6rtAHOBbGs3BG7"]
+            "1" : ["https://s3.tebi.io/index/FamilyGuy1.mp4", "https://s3.tebi.io/index/FamilyGuy2.mp4"]
         },
         "Spongebob": {
             "1" : ["https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep1.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep2.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep3.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep4.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep5.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep6.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep7.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep8.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep9.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep10.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep11.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep12.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep13.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep14.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep15.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep16.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep17.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep18.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep19.mp4", "https://filebin.net/xrd6axgrzvozhila/Spongebob_Ep20.mp4"]

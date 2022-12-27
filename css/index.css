@@ -154,3 +154,8 @@ header::after {
     bottom: 5rem;
     left: 50rem;
 }
+
+.paypal-button {
+    position: absolute;
+    z-index: 21412412450;
+}

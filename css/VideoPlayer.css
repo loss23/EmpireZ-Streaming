@@ -230,3 +230,8 @@ header::after {
   font-size: 1.2rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.paypal-button {
+  position: absolute;
+  z-index: 21412412450;
+}
