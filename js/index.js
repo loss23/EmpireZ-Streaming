@@ -7,7 +7,7 @@ const DataBase = {
             "1" : ["https://s3.tebi.io/index/FamilyGuy1.mp4", "https://s3.tebi.io/index/FamilyGuy2.mp4"]
         },
         "Spongebob": {
-            "1" : ["https://s3.tebi.io/index/Spongebob1.mp4"]
+            "1" : ["https://s3.tebi.io/index/Spongebob%20Ep1.mp4","https://s3.tebi.io/index/Spongebob%20Ep2.mp4","https://s3.tebi.io/index/Spongebob%20Ep3.mp4","https://s3.tebi.io/index/Spongebob%20Ep4.mp4","https://s3.tebi.io/index/Spongebob%20Ep5.mp4","https://s3.tebi.io/index/Spongebob%20Ep6.mp4","https://s3.tebi.io/index/Spongebob%20Ep7.mp4","https://s3.tebi.io/index/Spongebob%20Ep8.mp4","https://s3.tebi.io/index/Spongebob%20Ep9.mp4","https://s3.tebi.io/index/Spongebob%20Ep10.mp4","https://s3.tebi.io/index/Spongebob%20Ep11.mp4","https://s3.tebi.io/index/Spongebob%20Ep12.mp4","https://s3.tebi.io/index/Spongebob%20Ep13.mp4","https://s3.tebi.io/index/Spongebob%20Ep14.mp4","https://s3.tebi.io/index/Spongebob%20Ep15.mp4","https://s3.tebi.io/index/Spongebob%20Ep16.mp4","https://s3.tebi.io/index/Spongebob%20Ep17.mp4","https://s3.tebi.io/index/Spongebob%20Ep19.mp4","https://s3.tebi.io/index/Spongebob%20Ep20.mp4"]
         }
     },
     "Movies": {
