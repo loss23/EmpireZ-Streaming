@@ -129,11 +129,11 @@ header::after {
 }
 
 .VideoPlayer {
-    width: 45rem;
-    height: auto;
+    width: 55%;
+    height: 28rem;
     position: relative;
     top: -25rem;
-    left: 17rem;
+    left: 18rem;
     z-index: 6;
 }
 
