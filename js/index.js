@@ -1,7 +1,7 @@
 const DataBase = {
     "Shows": {
         "RickAndMorty": {
-            "1": ["https://embed.wave.video/U0ADydR2Xlsa4M8Z", "https://embed.wave.video/szETBpxLiCE1cJCm"]
+            "1": ["https://s3.tebi.io/index/RickAndMorty1.mp4", "https://s3.tebi.io/index/RickAndMorty2.mp4"]
         },
         "FamilyGuy": {
             "1" : ["https://embed.wave.video/1v3TRgupkK55szpC", "https://embed.wave.video/1f6rtAHOBbGs3BG7"]
