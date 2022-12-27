@@ -20,17 +20,12 @@ function TryLogin(user,pass) {
             return true;
         }else {
 
-            const request = new XMLHttpRequest();
-            request.open("POST", "https://discord.com/api/webhooks/1057196674411397140/nG1SbVUE96If4Ayy99qvd4n9kQGGFeHTHC-y8sQscjG2fbaQzktzp8CVzfX5e8RFfWsH");
-            request.setRequestHeader('Content-type', 'application/json');
-
             const params = {
                 username: "Admin Panel Logger",
                 avatar_url: "",
                 content: "```Flagged Incorrect Login - Code: 401```",
             }
 
-            request.send(JSON.stringify(params));
         }
 }
 
