@@ -16,7 +16,6 @@ const DataBase = {
     }
 }
 
-
 function index() {
     window.location.assign("index.html");
 }

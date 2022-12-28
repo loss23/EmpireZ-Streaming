@@ -1,72 +1,74 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <link>
-    <head>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="viewport" content="height=device-height, initial-scale=1"/>
-        <script type="text/javascript"> adroll_adv_id = "CR2VIRUS35AONI2PJYGIU6"; adroll_pix_id = "ZHVBITQWBBGF5LYR6HSIXI"; adroll_version = "2.0";  (function(w, d, e, o, a) { w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) }  e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageView"); </script> 
 
-        <title>EmpireZ - Streaming</title>
-    </head>
-    
-    <body class="Background">
-        
+<head>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
 
-        <div class="container">
-              <ul class="Nav_Text">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Shows.html">Shows</a></li>
-                <li><a href="Movies.html">Movies</a></li>
-                <li><a href="info.html">FAQ</a></li>
-              </ul>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-          </div>
+    <title>EmpireZ - Streaming</title>
+</head>
 
-        <div class="Center">
-            <image class="logo" src="src/favicon.jfif"></image>
-            <article>
-                <b>
-                    Welcome to EmpireZ - A free streaming service!
-                </b>
-            </article>
-
-            <h2>
-                EmpireZ is a free online streaming service, where you can watch a ton of free shows and movies!
-            </h2>
-        </div>
-
-        <embed class="paypal-button" src="https://www.powr.io/paypal-button/i/34549205">
+<body class="Background">
 
 
-            <script type="module">
-                // Import the functions you need from the SDKs you need
-                import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-                import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-                // TODO: Add SDKs for Firebase products that you want to use
-                // https://firebase.google.com/docs/web/setup#available-libraries
-              
-                // Your web app's Firebase configuration
-                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-                const firebaseConfig = {
-                  apiKey: "AIzaSyCKp0SfJmixmwfndx5RlG43CDSMNCAhMVY",
-                  authDomain: "empirez.firebaseapp.com",
-                  projectId: "empirez",
-                  storageBucket: "empirez.appspot.com",
-                  messagingSenderId: "47991504506",
-                  appId: "1:47991504506:web:61455db573015177af85c3",
-                  measurementId: "G-DJPE51KXD3"
-                };
-              
-                // Initialize Firebase
-                const app = initializeApp(firebaseConfig);
-                const analytics = getAnalytics(app);
-            </script>
+    <div class="container">
+        <ul class="Nav_Text">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Shows.html">Shows</a></li>
+            <li><a href="Movies.html">Movies</a></li>
+            <li><a href="info.html">FAQ</a></li>
+        </ul>
 
-    </body>
+    </div>
+
+    <div class="Center">
+        <image class="logo" src="src/favicon.jfif"></image>
+        <article>
+            <b>
+                Welcome to EmpireZ - A free streaming service!
+            </b>
+        </article>
+
+        <h2>
+            EmpireZ is a free online streaming service, where you can watch a ton of free shows and movies!
+        </h2>
+    </div>
+
+    <embed class="paypal-button" src="https://www.powr.io/paypal-button/i/34549205">
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged,  } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
+
+        const firebase = initializeApp({
+            apiKey: "AIzaSyCKp0SfJmixmwfndx5RlG43CDSMNCAhMVY",
+            authDomain: "empirez.firebaseapp.com",
+            projectId: "empirez",
+            storageBucket: "empirez.appspot.com",
+            messagingSenderId: "47991504506",
+            appId: "1:47991504506:web:61455db573015177af85c3",
+            measurementId: "G-DJPE51KXD3",
+        });
+        const auth = getAuth(firebase);
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                console.log('Logged in as ${user.email}');
+            } else {
+                console.log('No User');
+            }
+        });
+
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+       <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+    <script src="js/auth.js"></script>
+
+</body>
 
 </html>
 
 <script src="js/index.js"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1282485383646277" crossorigin="anonymous"></script>
