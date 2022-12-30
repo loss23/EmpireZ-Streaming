@@ -17,15 +17,15 @@ const DataBase = {
 }
 
 function index() {
-    window.location.assign("index.html");
+    window.location.assign("../Pages/index.html");
 }
 
 function home() {
-    window.location.assign("VideoPlayer.html");
+    window.location.assign("../Pages/VideoPlayer.html");
 }
 
 function info() {
-    window.location.assign("info.html");
+    window.location.assign("../Pages/info.html");
 }
 
 if (window.localStorage.getItem("CurrentEpisode")) {
