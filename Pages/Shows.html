@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<link>
+    <head>
+        <link rel="stylesheet" href="../css/VideoPlayer.css">
+        <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>EmpireZ - Streaming</title>
+    </head>
+
+    <body class="Background" onload="Page_Load()" onunload="Page_Unload()">
+
+            <div class="container">
+                  <ul class="Nav_Text">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../Pages/Shows.html">Shows</a></li>
+                    <li><a href="../Pages/Movies.html">Movies</a></li>
+                    <li><a href="../Pages/info.html">FAQ</a></li>
+                  </ul>
+    
+              </div>
+
+        <div class="Center">
+            <h1>Shows</h1>
+            
+            <select onchange="ShowSelect()" name="Shows" class="Shows">
+                <option value="RickAndMorty">Rick And Morty</option>
+                <option value="FamilyGuy">Family Guy</option>
+                <option value="Spongebob">Spongebob</option>
+            </select>
+
+            <select onchange="SeasonSelect()" name="Seasons" class="Seasons">
+
+            </select>
+
+            <select onchange="EpisodeSelect()" name="Episodes" class="Episodes">
+
+            </select>
+
+        </div>
+
+
+        <embed class="paypal-button" src="https://www.powr.io/paypal-button/i/34549205">
+
+    </body>
+
+</html>
+
+<span class="Popup">Playing next episode in 4 seconds</span>
+
+<video poster="../src/loading.gif" autoplay controlsList="nodownload" onended="EpisodeEnd()" class="VideoPlayer" frameborder="0" allow="fullscreen" preload="auto" controls scrolling="no"></video>
+<script src="../js/index.js"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1282485383646277" crossorigin="anonymous"></script>

@@ -4,7 +4,7 @@ body {
 }
 
 .Background {
-    background-image: url("file:///C:/Users/eagle/Downloads/Backimg.png");
+    background-image: url("../src/Backimg.png");
     background-repeat: space;
     height: 100vh;
     background-size: cover;
@@ -15,14 +15,14 @@ body {
 }
 
 .container {
-    background-color: #1b1b1b;
-    position: fixed;
-    top: 0rem;
-    width: 100%;
-    right: 0rem;
-    left: 0rem;
-    height: 8rem;
-    z-index: 25;
+  background-color: #1b1b1b;
+  position: fixed;
+  top: 0rem;
+  width: 100%;
+  right: 0rem;
+  left: 0rem;
+  height: 3rem;
+  z-index: 25;
 }
 
 header {
@@ -38,8 +38,10 @@ header::after {
 
 
 .Nav_Text {
-    text-align: left;
-
+  text-align: left;
+  position: relative;
+  top: -1.5rem;
+  left: -5.8rem;
 }
 
 .Nav_Text ul {
@@ -108,26 +110,30 @@ header::after {
 }
 
 .Center {
-    background-color: #1b1b1b;
-    color: rgb(255, 255, 255);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    position: relative;
-    padding-top: 2rem;
-    width: 75rem;
-    height: 40rem;
-    top: 15rem;
-    left: 20rem;
-    text-align: center;
-    border-radius: 10px;
+  background-color: #1b1b1bc3;
+  color: rgb(255, 255, 255);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  position: relative;
+  padding-top: 2rem;
+  width: 75rem;
+  height: 32rem;
+  top: 4rem;
+  left: 13rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.Center h1 {
+  position: relative;
+  top: -3.3rem;
 }
 
 .VideoPlayer {
-    width: 50rem;
-    height: 40rem;
-    border-radius: 2rem;
+    width: 55%;
+    height: 28rem;
     position: relative;
-    top: -18rem;
-    left: 33rem;
+    top: -25rem;
+    left: 18rem;
     z-index: 6;
 }
 
@@ -155,7 +161,7 @@ header::after {
 .Episodes {
     position: relative;
     z-index: 50;
-    top: -1rem;
+    top: -4.5rem;
     background-color: black;
     border: 0;
     color: white;
@@ -163,10 +169,21 @@ header::after {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.Seasons {
+  position: relative;
+  z-index: 50;
+  top: -4.5rem;
+  background-color: black;
+  border: 0;
+  color: white;
+  font-size: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .Episodes:hover {
     position: relative;
     z-index: 50;
-    top: -1rem;
+    top: -4.5rem;
     background-color: rgb(39, 38, 38);
     border: 0;
     color: rgb(198, 246, 255);
@@ -177,19 +194,7 @@ header::after {
 .Shows {
     position: relative;
     z-index: 50;
-    top: -1rem;
-    background-color: black;
-    border: 0;
-    color: white;
-    font-size: 1.2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.Stream {
-    position: relative;
-    z-index: 50;
-    top: .2rem;
-    left: 36rem;
+    top: -4.5rem;
     background-color: black;
     border: 0;
     color: white;
@@ -202,4 +207,31 @@ header::after {
     z-index: 50;
     bottom: -.5rem;
     left: 24.5rem;
+}
+
+.Popup {
+  color: rgb(255, 0, 0);
+  font-size: 1.8rem;
+  background-color: #4a0000;
+  z-index: 2500000;
+  position: absolute;
+  top: 0rem;
+  display: none;
+  left: 0rem;
+}
+
+.Movies {
+  position: relative;
+  z-index: 50;
+  top: -4.5rem;
+  background-color: black;
+  border: 0;
+  color: white;
+  font-size: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.paypal-button {
+  position: absolute;
+  z-index: 21412412450;
 }

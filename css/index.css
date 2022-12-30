@@ -1,41 +1,32 @@
 body {
-    background-color: rgb(34, 34, 34);
-    overflow: hidden;
+  background-color: rgb(34, 34, 34);
+  overflow: hidden;
+  width: 100%;
 }
 
 .logo {
-    width: 8rem;
-    z-index: 2555;
-}
-
-
-.Logoimg {
-    display: block;
-    height: 600px;
-    margin-top: -185px;
+  width: 24rem;
+  z-index: 2555;
 }
 
 .Background {
-    background-image: url("file:///C:/Users/eagle/Downloads/Backimg.png");
-    background-repeat: space;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: block;
-
-
+  background-image: url("../src/Backimg.png");
+  background-repeat: space;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: block;
 }
 
-
 .container {
-    background-color: #1b1b1b;
-    position: fixed;
-    top: 0rem;
-    width: 100%;
-    right: 0rem;
-    left: 0rem;
-    height: 8rem;
-    z-index: 25;
+  background-color: #1b1b1b;
+  position: fixed;
+  top: 0rem;
+  width: 100%;
+  right: 0rem;
+  left: 0rem;
+  height: 3rem;
+  z-index: 25;
 }
 
 header {
@@ -44,15 +35,16 @@ header {
 }
 
 header::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
 
-
 .Nav_Text {
-    text-align: left;
-
+  text-align: left;
+  position: relative;
+  top: -1.5rem;
+  left: -5.8rem;
 }
 
 .Nav_Text ul {
@@ -66,7 +58,6 @@ header::after {
   left: 30%;
   margin-left: 75px;
   padding-top: 23px;
-  
 
   position: relative;
 }
@@ -76,14 +67,13 @@ header::after {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 20px;
-  
 }
 
 .Nav_Text a:hover {
   color: rgb(0, 0, 0);
 }
 .Nav_Text a::before {
-  content: '';
+  content: "";
   display: block;
   height: 5px;
   background-color: rgb(0, 0, 0);
@@ -99,64 +89,70 @@ header::after {
 }
 
 .info_button {
-    color: rgb(255, 255, 255);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
-    text-align: left;
-    position: relative;
-    top: -6.6rem;
-    left: 21.3rem;
+  color: rgb(255, 255, 255);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  text-align: left;
+  position: relative;
+  top: -6.6rem;
+  left: 21.3rem;
 }
 
 .info_button:hover {
-    color: rgb(144, 235, 255);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
-    text-align: left;
-    position: relative;
-    top: -6.6rem;
-    left: 21.3rem;
-    cursor: grab;
+  color: rgb(144, 235, 255);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  text-align: left;
+  position: relative;
+  top: -6.6rem;
+  left: 21.3rem;
+  cursor: grab;
 }
 
 .Center {
-    background-color: #1b1b1b;
-    color: rgb(255, 255, 255);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    position: relative;
-    padding-top: 2rem;
-    width: 75rem;
-    height: 40rem;
-    top: 15rem;
-    left: 20rem;
-    text-align: center;
-    border-radius: 10px;
+  background-color: #1b1b1bc3;
+  color: rgb(255, 255, 255);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  position: relative;
+  padding-top: 2rem;
+  width: 75rem;
+  height: 32rem;
+  top: 4rem;
+  left: 13rem;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .Ads {
-    position: absolute;
-    z-index: 50;
-    bottom: -.5rem;
-    left: 24.5rem;
+  position: absolute;
+  z-index: 50;
+  bottom: -0.5rem;
+  left: 24.5rem;
 }
 
 .Ads2 {
-    position: absolute;
-    z-index: 50;
-    bottom: 5rem;
-    left: 10rem;
+  position: absolute;
+  z-index: 50;
+  bottom: 5rem;
+  left: 10rem;
 }
 
 .Ads3 {
-    position: absolute;
-    z-index: 50;
-    bottom: 5rem;
-    left: 30rem;
+  position: absolute;
+  z-index: 50;
+  bottom: 5rem;
+  left: 30rem;
 }
 
 .Ads4 {
-    position: absolute;
-    z-index: 50;
-    bottom: 5rem;
-    left: 50rem;
+  position: absolute;
+  z-index: 50;
+  bottom: 5rem;
+  left: 50rem;
+}
+
+.paypal-button {
+  position: absolute;
+  z-index: 21412412450;
 }

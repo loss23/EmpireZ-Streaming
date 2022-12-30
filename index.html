@@ -1,45 +1,73 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <link>
-    <head>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="viewport" content="height=device-height, initial-scale=1"/>
-        <meta name="purpleads-verification" content="864e98e7f84cfc7e95bbd156"/>
 
-        <title>EmpireZ - Streaming</title>
-    </head>
-    
-    <body class="Background">
-        
+<head>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
 
-        <div class="container">
-              <ul class="Nav_Text">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Shows.html">Shows</a></li>
-                <li><a href="Movies.html">Movies</a></li>
-                <li><a href="info.html">FAQ</a></li>
-              </ul>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-          </div>
+    <title>EmpireZ - Streaming</title>
+</head>
 
-        <div class="Center">
-            <image class="logo" src="src/favicon.jfif"></image>
-            <article>
-                <b>
-                    Welcome to EmpireZ - A free streaming service!
-                </b>
-            </article>
+<body class="Background">
 
-            <h2>
-                EmpireZ is a free online streaming service, where you can watch a ton of free shows and movies!
-            </h2>
-        </div>
 
-    </body>
+    <div class="container">
+        <ul class="Nav_Text">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Pages/Shows.html">Shows</a></li>
+            <li><a href="Pages/Movies.html">Movies</a></li>
+            <li><a href="Pages/info.html">FAQ</a></li>
+        </ul>
+
+    </div>
+
+    <div class="Center">
+        <image class="logo" src="src/favicon.jfif"></image>
+        <article>
+            <b>
+                Welcome to EmpireZ - A free streaming service!
+            </b>
+        </article>
+
+        <h2>
+            EmpireZ is a free online streaming service, where you can watch a ton of free shows and movies!
+        </h2>
+    </div>
+
+    <embed class="paypal-button" src="https://www.powr.io/paypal-button/i/34549205">
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged,  } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
+
+        const firebase = initializeApp({
+            apiKey: "AIzaSyCKp0SfJmixmwfndx5RlG43CDSMNCAhMVY",
+            authDomain: "empirez.firebaseapp.com",
+            projectId: "empirez",
+            storageBucket: "empirez.appspot.com",
+            messagingSenderId: "47991504506",
+            appId: "1:47991504506:web:61455db573015177af85c3",
+            measurementId: "G-DJPE51KXD3",
+        });
+        const auth = getAuth(firebase);
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                console.log('Logged in as');
+            } else {
+                console.log('No User');
+            }
+        });
+
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+       <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+
+</body>
 
 </html>
 
 <script src="js/index.js"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1282485383646277" crossorigin="anonymous"></script>
