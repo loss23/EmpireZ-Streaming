@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<head>
+    <title>funny secret page lmao</title>
+</head>
+
+<body>
+    <input type="text" class="ShowName"> 
+    <input onchange="CoolThing(this)" class="Source" type="file" accept="folder" name="funnysecret">
+</body>
+
+<script type="text/javascript">
+
+    if (window.sessionStorage.getItem("admin?") == 'true') {
+
+    }else {
+        window.location.assign("../index.html")
+    }
+
+    function CoolThing(x) {
+        var Obj;
+        Obj = new File(x.files,"Test",)
+        console.log(Obj)
+    }
+
+</script>

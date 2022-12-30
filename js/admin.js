@@ -9,7 +9,7 @@ function TryLogin(user,pass) {
         window.sessionStorage.setItem("admin?","true");
         return true;
     }else {
-        window.location.assign("index.html")
+        window.location.assign("../index.html")
         return false;
     }
 }
@@ -19,7 +19,7 @@ function CheckStatus() {
     if (window.sessionStorage.getItem("admin?")) {
 
     }else{
-        document.body.innerHTML = "<a style='color: red; z-index:25000;'> You really thought you'd get in and steal our stuff?</a> <img style='Position:absolute; right:0rem; width:100%; height:102%;' src='src/poland.gif'>";
+        document.body.innerHTML = "<a style='color: red; z-index:25000;'> You really thought you'd get in and steal our stuff?</a> <img style='Position:absolute; right:0rem; width:100%; height:102%;' src='../src/poland.gif'>";
 
         setTimeout(() => {
             TryLogin(window.prompt("User: "), window.prompt("Pass: "))

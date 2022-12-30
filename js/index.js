@@ -1,7 +1,7 @@
 const DataBase = {
     "Shows": {
         "RickAndMorty": {
-            "1": ["https://s3.tebi.io/index/RickAndMorty1.mp4", "https://s3.tebi.io/index/RickAndMorty2.mp4"]
+            "1": ["https://s3.tebi.io/index/RickAndMorty%20Ep1.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep2.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep3.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep4.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep5.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep6.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep7.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep8.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep9.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep10.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep11.mp4"]
         },
         "FamilyGuy": {
             "1" : ["https://s3.tebi.io/index/FamilyGuy1.mp4", "https://s3.tebi.io/index/FamilyGuy2.mp4"]
@@ -15,6 +15,17 @@ const DataBase = {
         "Spongebob": "https://s3.tebi.io/index/Spongebob/SpongebobMovie.mp4"
     }
 }
+
+AdminTouches = 10;
+
+document.addEventListener("keydown", function(e){
+    if (e.key == 'q' && window.location.pathname !== "Pages" && AdminTouches < 1 && window.confirm("Did you mean to access the admin panel?")) {
+        window.location.assign("Pages/admin.html");
+    }else if (AdminTouches > 0) {
+        AdminTouches -= 1;
+        console.log(AdminTouches);
+    }
+});
 
 function index() {
     window.location.assign("../Pages/index.html");
