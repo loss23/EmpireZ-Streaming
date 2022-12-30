@@ -37,35 +37,6 @@
     </div>
 
     <embed class="paypal-button" src="https://www.powr.io/paypal-button/i/34549205">
-
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
-        import { getAuth, onAuthStateChanged,  } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
-
-        const firebase = initializeApp({
-            apiKey: "AIzaSyCKp0SfJmixmwfndx5RlG43CDSMNCAhMVY",
-            authDomain: "empirez.firebaseapp.com",
-            projectId: "empirez",
-            storageBucket: "empirez.appspot.com",
-            messagingSenderId: "47991504506",
-            appId: "1:47991504506:web:61455db573015177af85c3",
-            measurementId: "G-DJPE51KXD3",
-        });
-        const auth = getAuth(firebase);
-
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                console.log('Logged in as');
-            } else {
-                console.log('No User');
-            }
-        });
-
-    </script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-       <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
-
 </body>
 
 </html>
