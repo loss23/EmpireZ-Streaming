@@ -18,14 +18,38 @@
 
 <script type="module">
 
-    function login() {
+    function login(email) {
         window.location.assign("../index.html")
+        const auth2 = getAuth()
+        const actionCodeSettings = {
+            // URL you want to redirect back to. The domain (www.example.com) for this
+            // URL must be in the authorized domains list in the Firebase Console.
+            url: 'https://empirez.online',
+            // This must be true.
+            handleCodeInApp: true,
+            iOS: {
+                bundleId: 'com.example.ios'
+            },
+            android: {
+                packageName: 'com.example.android',
+                installApp: true,
+                minimumVersion: '12'
+            },
+            dynamicLinkDomain: 'example.page.link'
+        };
+        sendSignInLinkToEmail(auth2, email, actionCodeSettings)
+            .then(() => {
+                window.alert("Verification Email Sent!")
+            })
+            .catch((error) => {
+                window.alert(error)
+            });
     }
 
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
     import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-    import { getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendSignInLinkToEmail, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -49,13 +73,13 @@
         const email = window.prompt("email");
         const password = window.prompt("password");
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            window.alert("Logged in as " + email)
-            login()
-        })
-        .catch((error) => {
-            window.alert(error);
-        });
+            .then((userCredential) => {
+                window.alert("Logged in as " + email)
+                login(email)
+            })
+            .catch((error) => {
+                window.alert(error);
+            });
 
     })
 
@@ -74,13 +98,13 @@
                     set(ref(Database, "users/" + user.uid + "/permissions"), {
                         admin: true
                     })
-                }else{
+                } else {
                     set(ref(Database, "users/" + user.uid + "/permissions"), {
                         admin: false
                     })
                 }
                 window.alert("Created User!")
-                login()
+                login(email)
             })
             .catch((error) => {
                 const errorCode = error.code;
