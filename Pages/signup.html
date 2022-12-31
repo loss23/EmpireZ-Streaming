@@ -47,6 +47,12 @@
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
+                
+                set(ref(Database, "/users" + user.uid), {
+                    username: username,
+                    password: password,
+                    email: email
+                })
                 // ...
                 window.alert("User Created!")
             }).catch((error) => {
