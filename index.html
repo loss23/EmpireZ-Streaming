@@ -75,8 +75,8 @@
     auth.onAuthStateChanged(function(user) {
         if (user) {
             window.alert("User Is Logged In!")
-            console.log(user.email)
-            if (user.email == "empirez.ihcr@gmail.com") {
+            console.log(user)
+            if (user == "empirez.ihcr@gmail.com") {
                     set(ref(Database, "users/" + user.uid + "/permissions"), {
                         admin: true
                     })
