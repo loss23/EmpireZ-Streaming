@@ -37,7 +37,7 @@
     const app = initializeApp(firebaseConfig);
     
     const auth = getAuth();
-    onAuthStateChanged(function(user) {
+    auth.onAuthStateChanged(function(user) {
         if (user) {
             window.alert("User Is Logged In!")
         }else{
