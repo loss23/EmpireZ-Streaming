@@ -123,8 +123,8 @@ list-style: none;
 
   width: 75%;
   height: 60%;
-  top: 10rem;
-  left: 12%;
+  top: 8rem;
+  left: 8%;
 
   text-align: center;
   border-radius: 10px;
@@ -137,13 +137,16 @@ list-style: none;
 }
 
 .VideoPlayer {
-    max-width: 55%;
-    height: auto;
-    position: relative;
+    width: auto;
+    max-width: 70%;
+    height: 70%;
+    height: min-content;
+    position: absolute;
     z-index: 6;
+    aspect-ratio: 1/.5;
 
-    top: -35%;
-    left: 25%;
+    top: 20%;
+    left: 15%;
 }
 
 .info_button {
