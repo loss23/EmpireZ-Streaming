@@ -167,7 +167,8 @@
                     ep_count = ShowDatabase[Show][Season].indexOf(document.getElementsByClassName("Episodes").item(0).value)+1;
                     document.getElementsByClassName("VideoPlayer").item(0).src = ShowDatabase[Show][Season][ep_count]
                     document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
-                    window.location.reload();
+                    document.getElementsByClassName("Episodes").item(0).value = ShowDatabase[Show][Season][ep_count];
+                    document.getElementsByClassName("Popup").item(0).style.display = "none";
                 }, 4000);
             }
             window.onunload = function cool() {
