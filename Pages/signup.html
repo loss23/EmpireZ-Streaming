@@ -39,16 +39,16 @@
     const auth = getAuth();
 
     SignUpButton.addEventListener("click", (e) => {
-        createUserWithEmailAndPassword(auth)
+        const email = window.prompt("email");
+        const password = window.prompt("password");
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                const username = window.prompt("Username");
-                const password = window.prompt("Password");
 
                 set(ref(Database, "/users" + user.uid), {
-                    username: username,
+                    email: email,
                     password: password
-                }) 
+                })
             })
             .catch((error) => {
                 const errorCode = error.code;
