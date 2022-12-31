@@ -70,8 +70,8 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const Database = getDatabase(app);
-
     const auth = getAuth();
+
     const user = auth.currentUser;
 
     auth.onAuthStateChanged(function (user) {
@@ -79,8 +79,10 @@
             window.onload = cool();
             function cool() {
                 set(ref(Database, "users/" + user.uid + "/data"), {
-                    TimeStamp: "0",
-                    Show: "N/A"
+                    TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
+                    Show: document.getElementsByClassName("Episodes").item(0).value,
+                    Episode: document.getElementsByClassName("VideoPlayer").item(0).src,
+                    Season: document.getElementsByClassName("Seasons").item(0).value
                 })
             }
         } else {
