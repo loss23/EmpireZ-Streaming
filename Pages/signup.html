@@ -84,11 +84,11 @@
                 const user = result.user;
 
                 if (auth.currentUser.email == "empirez.ihcr@gmail.com") {
-                    set(ref(Database, "users/" + user.uid + "/permissions"), {
+                    set(ref(Database, "users/" + auth.currentUser.uid + "/permissions"), {
                         admin: true
                     })
                 }else{
-                    set(ref(Database, "users/" + user.uid + "/permissions"), {
+                    set(ref(Database, "users/" + auth.currentUser.uid + "/permissions"), {
                         admin: false
                     })
                 }
