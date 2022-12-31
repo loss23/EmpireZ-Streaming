@@ -18,23 +18,28 @@ body {
     background-size: cover;
     background-position: center;
     display: block;
+
+    overflow-y: scroll;
 }
 
 
 .container {
     background-color: #1b1b1b;
     position: fixed;
+    text-align: center;
+
     top: 0rem;
     width: 100%;
     right: 0rem;
     left: 0rem;
-    height: 3rem;
+    height: 4rem;
+
     z-index: 25;
 }
 
 header {
   background: #1f1c1a;
-  height: 100px;
+  height: 100rem;
 }
 
 header::after {
@@ -45,10 +50,8 @@ header::after {
 
 
 .Nav_Text {
-  text-align: left;
-  position: relative;
-  top: -1.5rem;
-  left: -5.8rem;
+    position: relative;
+
 }
 
 .Nav_Text ul {
@@ -58,13 +61,11 @@ header::after {
 }
 
 .Nav_Text li {
-  display: inline-block;
-  left: 30%;
-  margin-left: 75px;
-  padding-top: 23px;
-  
-
-  position: relative;
+    display: inline-block;
+    padding-top: 15px;
+    margin-right: 5rem;
+    left: 3rem;
+    position: relative;
 }
 
 .Nav_Text a {
@@ -119,14 +120,23 @@ header::after {
   background-color: #1b1b1bc3;
   color: rgb(255, 255, 255);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 100%;
+
   position: relative;
   padding-top: 2rem;
-  width: 75rem;
-  height: 34rem;
-  top: 4rem;
-  left: 13rem;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+
+  width: 75%;
+  height: 60%;
+  top: 10rem;
+  left: 12%;
+
   text-align: center;
   border-radius: 10px;
+
 }
 
 
