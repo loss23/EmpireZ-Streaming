@@ -51,13 +51,4 @@
                 window.alert(error);
             })
     })
-
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            const uid = user.uid;
-            window.alert(uid)
-        } else {
-            window.alert("user signed out!")
-        }
-    });
 </script>

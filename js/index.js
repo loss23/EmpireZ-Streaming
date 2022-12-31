@@ -15,7 +15,8 @@ const DataBase = {
         }
     },
     "Movies": {
-        "Spongebob": "https://s3.tebi.io/index/Spongebob/SpongebobMovie.mp4"
+        "Spongebob": "https://s3.tebi.io/index/Spongebob/SpongebobMovie.mp4",
+        "Spider-Man; Into The Spiderverse" : "https://s3.tebi.io/index/Spider-Man/SpidermanIntoTheSpiderVerse.mp4"
     }
 }
 
