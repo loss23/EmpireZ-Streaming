@@ -8,8 +8,9 @@
 <body>
     <div class="login-box">
         <h1>Sign Up</h1>
-        <button id="SignUpButton" class="SignUpButton">Sign Up</button>
-        <button id="SignUpButton2">Sign Up With Google</button>
+        <button id="SignUpButton" class="SignUpButton">Sign Up with email/password</button>
+        <button id="SignUpButton2">Sign in With Google</button>
+        <button id="LoginButton">Login with email/password</button>
     </div>
 </body>
 
@@ -17,14 +18,14 @@
 
 <script type="module">
 
-    function login(user) {
+    function login() {
         window.location.assign("../index.html")
     }
 
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
     import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-    import { getAuth, signInWithPopup, createUserWithEmailAndPassword, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -43,6 +44,20 @@
     const app = initializeApp(firebaseConfig);
     const Database = getDatabase(app);
     const auth = getAuth();
+
+    LoginButton.addEventListener("click", (e) => {
+        const email = window.prompt("email");
+        const password = window.prompt("password");
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            window.alert("Logged in as " + email)
+            login()
+        })
+        .catch((error) => {
+            window.alert(error);
+        });
+
+    })
 
     SignUpButton.addEventListener("click", (e) => {
         const email = window.prompt("email");
@@ -65,7 +80,7 @@
                     })
                 }
                 window.alert("Created User!")
-                login(user)
+                login()
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -83,7 +98,7 @@
                 const token = credential.accessToken;
                 const user = result.user;
 
-                login(user)
+                login()
             })
             .catch((error) => {
                 const credential = GoogleAuthProvider.credentialFromError(error);
