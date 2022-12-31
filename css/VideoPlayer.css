@@ -137,7 +137,7 @@ list-style: none;
 }
 
 .VideoPlayer {
-    max-width: 75%;
+    max-width: 55%;
     height: auto;
     position: relative;
     z-index: 6;
