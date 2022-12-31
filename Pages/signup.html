@@ -42,10 +42,12 @@
         createUserWithEmailAndPassword(auth)
             .then((userCredential) => {
                 const user = userCredential.user;
+                const username = window.prompt("Username");
+                const password = window.prompt("Password");
 
                 set(ref(Database, "/users" + user.uid), {
-                    username: window.prompt("Username"),
-                    password: window.prompt("Password")
+                    username: username,
+                    password: password
                 }) 
             })
             .catch((error) => {
