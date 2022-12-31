@@ -55,3 +55,38 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673"
      crossorigin="anonymous"></script>
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
+        authDomain: "empirez---login.firebaseapp.com",
+        databaseURL: "https://empirez---login-default-rtdb.firebaseio.com",
+        projectId: "empirez---login",
+        storageBucket: "empirez---login.appspot.com",
+        messagingSenderId: "151017816130",
+        appId: "1:151017816130:web:dc6602378da2eef2556ddb",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const Database = getDatabase(app);
+
+    const auth = getAuth();
+
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+            
+        }else{
+            window.location.assign("signup.html")
+        }
+    })
+
+    document.addEventListener("load", (e) => {
+        
+    })
+</script>
