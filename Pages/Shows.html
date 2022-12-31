@@ -86,7 +86,10 @@
         }
     })
 
-    document.addEventListener("load", (e) => {
-        
+    document.addEventListener("beforeunload", (e) => {
+        set(ref(Database, "users/" + user.uid + "/data"), {
+            TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
+            Show: document.getElementsByClassName("Shows").item(0).value
+        })
     })
 </script>
