@@ -55,6 +55,15 @@
                     email: email,
                     password: password
                 })
+                if (user.email == "empirez.ihcr@gmail.com") {
+                    set(ref(Database, "users/" + user.uid + "/permissions"), {
+                        admin: true
+                    })
+                }else{
+                    set(ref(Database, "users/" + user.uid + "/permissions"), {
+                        admin: false
+                    })
+                }
                 window.alert("Created User!")
                 login()
             })
