@@ -45,7 +45,7 @@
             .then((userCredential) => {
                 const user = userCredential.user;
 
-                set(ref(Database, "/users" + user.uid), {
+                set(ref(Database, "users/" + user.uid), {
                     email: email,
                     password: password
                 })
