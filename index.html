@@ -76,7 +76,7 @@
         if (user) {
             window.alert("User Is Logged In!")
             console.log(user)
-            if (user == "empirez.ihcr@gmail.com") {
+            if (user.email !== null && user.email == "empirez.ihcr@gmail.com") {
                     set(ref(Database, "users/" + user.uid + "/permissions"), {
                         admin: true
                     })
