@@ -45,7 +45,7 @@
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
                 const user = result.user;
-                window.alert("user created!" + user.displayName);
+                window.alert("user created: " + user.displayName);
             })
             .catch((error) => {
                 window.alert(error);
