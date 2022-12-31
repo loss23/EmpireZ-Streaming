@@ -58,6 +58,8 @@
             });
     })
 
+    const provider = new GoogleAuthProvider();
+
     SignUpButton2.addEventListener("click", (e) => {
         signInWithPopup(auth, provider)
             .then((result) => {
