@@ -49,7 +49,7 @@
                 const user = result.user;
                 
                 set(ref(Database, "/users" + user.uid), {
-                    username: username,
+                    email: username,
                     password: password
                 })
                 // ...
