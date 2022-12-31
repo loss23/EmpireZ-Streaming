@@ -42,7 +42,10 @@
     SignUpButton.addEventListener("click", (e) => {
         signInWithPopup(auth, provider)
             .then((result) => {
-                window.alert("user created!");
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+                window.alert("user created!" + user);
             })
             .catch((error) => {
                 window.alert(error);
