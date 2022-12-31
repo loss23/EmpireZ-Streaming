@@ -83,9 +83,15 @@
                 const token = credential.accessToken;
                 const user = result.user;
 
-                set(ref(Database, "users/" + user.uid), {
-                    email: user.displayName
-                })
+                if (user.email == "empirez.ihcr@gmail.com") {
+                    set(ref(Database, "users/" + user.uid + "/permissions"), {
+                        admin: true
+                    })
+                }else{
+                    set(ref(Database, "users/" + user.uid + "/permissions"), {
+                        admin: false
+                    })
+                }
 
                 login()
             })
