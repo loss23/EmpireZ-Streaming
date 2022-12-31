@@ -48,6 +48,7 @@
                 // The signed-in user info.
                 const user = result.user;
                 // ...
+                window.alert("User Created!")
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
@@ -57,6 +58,7 @@
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
                 // ...
+                window.alert(error)
             });
     })
 </script>
