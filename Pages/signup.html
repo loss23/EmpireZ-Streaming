@@ -39,7 +39,7 @@
     const auth = getAuth();
 
     SignUpButton.addEventListener("click", (e) => {
-        createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth)
             .then((userCredential) => {
                 const user = userCredential.user;
 
