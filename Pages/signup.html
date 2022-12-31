@@ -9,6 +9,7 @@
     <div class="login-box">
         <h1>Sign Up</h1>
         <button id="SignUpButton" class="SignUpButton">Sign Up</button>
+        <button id="SignUpButton2">Sign Up With Google</button>
     </div>
 </body>
 
@@ -55,21 +56,22 @@
                 const errorMessage = error.message;
                 window.alert(error);
             });
+    })
 
-
-        // signInWithPopup(auth, provider)
-        //     .then((result) => {
-        //         const credential = GoogleAuthProvider.credentialFromResult(result);
-        //         const token = credential.accessToken;
-        //         const user = result.user;
-        //         window.alert("user created: " + user.displayName);
-        //     })
-        //     .catch((error) => {
-        //         const errorCode = error.code;
-        //         const errorMessage = error.message;
-        //         const email = error.customData.email;
-        //         const credential = GoogleAuthProvider.credentialFromError(error);
-        //         window.alert(error);
-        //     })
+    SignUpButton2.addEventListener("click", (e) => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+                window.alert("user created: " + user.displayName);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                window.alert(error);
+            })
     })
 </script>
