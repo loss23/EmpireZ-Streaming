@@ -93,7 +93,7 @@
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
-            const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
+            const UserData = ref(Database, 'users/' + user.uid + "/data/Slot1"); onValue(UserData, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
                     for (var i = 0; i < Object.keys(ShowDatabase[data["Show"]]).length; i++) {
@@ -168,7 +168,7 @@
                 }, 4000);
             }
             window.onunload = function cool() {
-                set(ref(Database, "users/" + user.uid + "/data"), {
+                set(ref(Database, "users/" + user.uid + "/data/Slot1"), {
                     TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
                     Show: document.getElementsByClassName("Shows").item(0).value,
                     Episode: document.getElementsByClassName("VideoPlayer").item(0).src,
