@@ -69,6 +69,7 @@
         appId: "1:151017816130:web:dc6602378da2eef2556ddb",
     };
     const app = initializeApp(firebaseConfig);
+    const Database = getDatabase(app);
     
     const auth = getAuth();
     auth.onAuthStateChanged(function(user) {
