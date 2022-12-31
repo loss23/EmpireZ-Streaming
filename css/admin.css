@@ -9,24 +9,28 @@ body {
 }
 
 .Background {
-    background-image: url("../src/Backimg.png");
-    background-repeat: space;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: block;
+  background-image: url("../src/Backimg.png");
+  background-repeat: space;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: block;
 
 
+  overflow-y: scroll;
 }
 
 .container {
   background-color: #1b1b1b;
   position: fixed;
+  text-align: center;
+
   top: 0rem;
   width: 100%;
   right: 0rem;
   left: 0rem;
-  height: 3rem;
+  height: 4rem;
+
   z-index: 25;
 }
 
@@ -114,17 +118,26 @@ header::after {
 }
 
 .Center {
-    background-color: #1b1b1bc3;
-    color: rgb(255, 255, 255);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    position: relative;
-    padding-top: 2rem;
-    width: 75rem;
-    height: 32rem;
-    top: 4rem;
-    left: 13rem;
-    text-align: center;
-    border-radius: 10px;
+  background-color: #1b1b1bc3;
+  color: rgb(255, 255, 255);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 100%;
+
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+
+  width: 75%;
+  height: 60%;
+  top: 10rem;
+  left: 12%;
+
+  text-align: center;
+  border-radius: 10px;
+
 }
 
 .Ads {
