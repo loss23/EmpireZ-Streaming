@@ -128,21 +128,21 @@ function ShowSelect() {
     Season = "1";
     Episode = DataBase["Shows"][Show][Season][0];
     window.localStorage.setItem("Time", 0)
-    document.location.reload(true);
+    document.getElementsByClassName("VideoPlayer").item(0).src = Episode;
 }
 
 function SeasonSelect() {
     Season = document.getElementsByClassName("Seasons").item(0).value;
     Episode = DataBase["Shows"][Show][Season][0];
     window.localStorage.setItem("Time", 0)
-    document.location.reload(true);
+    document.getElementsByClassName("VideoPlayer").item(0).src = Episode;
 }
 
 function MovieSelect() {
     Movie = document.getElementsByClassName("Movies").item(0).value;
     window.localStorage.setItem("CurrentMovie", Movie);
     window.localStorage.setItem("MovieTime", 0);
-    document.location.reload(true);
+    document.getElementsByClassName("VideoPlayer").item(0).src = Movie;
 }
 
 function EpisodeEnd() {
