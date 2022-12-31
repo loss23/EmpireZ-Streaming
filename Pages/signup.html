@@ -83,7 +83,7 @@
                 const token = credential.accessToken;
                 const user = result.user;
 
-                if (user.email == "empirez.ihcr@gmail.com") {
+                if (auth.currentUser.email == "empirez.ihcr@gmail.com") {
                     set(ref(Database, "users/" + user.uid + "/permissions"), {
                         admin: true
                     })
