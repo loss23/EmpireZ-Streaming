@@ -77,7 +77,7 @@
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
-            window.onload = cool();
+            window.onunload = cool();
             function cool() {
                 set(ref(Database, "users/" + user.uid + "/data"), {
                     TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
