@@ -1,60 +1,55 @@
 <!DOCTYPE html>
 <link>
-    <head>
-        <link rel="stylesheet" href="../css/VideoPlayer.css">
-        <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <link rel="stylesheet" href="../css/VideoPlayer.css">
+    <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
 
-        <title>EmpireZ - Streaming</title>
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body class="Background" onload="Page_Load()" onunload="Page_Unload()">
+    <title>EmpireZ - Streaming</title>
+</head>
 
-            <div class="container">
-                  <ul class="Nav_Text">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../Pages/Shows.html">Shows</a></li>
-                    <li><a href="../Pages/Movies.html">Movies</a></li>
-                    <li><a href="../Pages/info.html">FAQ</a></li>
-                  </ul>
-    
-              </div>
+<body class="Background" onload="Page_Load()" onunload="Page_Unload()">
 
-        <div class="Center">
-            <h1>Shows</h1>
-            
-            <select onchange="ShowSelect()" name="Shows" class="Shows">
-                <option value="RickAndMorty">Rick And Morty</option>
-                <option value="FamilyGuy">Family Guy</option>
-                <option value="Spongebob">Spongebob</option>
-                <option value="BojackHorseman">Bojack Horseman</option>
-            </select>
+    <div class="container">
+        <ul class="Nav_Text">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../Pages/Shows.html">Shows</a></li>
+            <li><a href="../Pages/Movies.html">Movies</a></li>
+            <li><a href="../Pages/info.html">FAQ</a></li>
+        </ul>
 
-            <select onchange="SeasonSelect()" name="Seasons" class="Seasons">
+    </div>
 
-            </select>
+    <div class="Center">
+        <h1>Shows</h1>
 
-            <select onchange="EpisodeSelect()" name="Episodes" class="Episodes">
+        <select onchange="ShowSelect()" name="Shows" class="Shows">
+            <option value="RickAndMorty">Rick And Morty</option>
+            <option value="FamilyGuy">Family Guy</option>
+            <option value="Spongebob">Spongebob</option>
+            <option value="BojackHorseman">Bojack Horseman</option>
+        </select>
 
-            </select>
+        <select onchange="SeasonSelect()" name="Seasons" class="Seasons">
 
-        </div>
+        </select>
+
+        <select onchange="EpisodeSelect()" name="Episodes" class="Episodes">
+
+        </select>
+
+    </div>
 
 
-        <embed class="paypal-button" src="https://www.powr.io/paypal-button/i/34549205">
+    <embed class="paypal-button" src="https://www.powr.io/paypal-button/i/34549205">
 
-    </body>
+</body>
 
 </html>
 
 <span class="Popup">Playing next episode in 4 seconds</span>
-
-<video poster="../src/loading.gif" autoplay controlsList="nodownload" onended="EpisodeEnd()" class="VideoPlayer" frameborder="0" allow="fullscreen" preload="auto" controls scrolling="no"></video>
-<script src="../js/index.js"></script>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673"
-     crossorigin="anonymous"></script>
 
 <script type="module">
 
@@ -77,19 +72,27 @@
     const Database = getDatabase(app);
 
     const auth = getAuth();
+    const user = auth.currentUser;
 
-    auth.onAuthStateChanged(function(user) {
+    auth.onAuthStateChanged(function (user) {
         if (user) {
-            
-        }else{
+            window.onload = cool();
+            function cool() {
+                set(ref(Database, "users/" + user.uid + "/data"), {
+                    TimeStamp: "0",
+                    Show: "N/A"
+                })
+            }
+        } else {
             window.location.assign("signup.html")
         }
     })
 
-    window.addEventListener("unload", (e) => {
-        set(ref(Database, "users/" + user.uid + "/data"), {
-            TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
-            Show: document.getElementsByClassName("Shows").item(0).value
-        })
-    })
 </script>
+
+<video poster="../src/loading.gif" autoplay controlsList="nodownload" id="VideoPlayer" onended="EpisodeEnd()"
+    class="VideoPlayer" frameborder="0" allow="fullscreen" preload="auto" controls scrolling="no"></video>
+<script src="../js/index.js"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673"
+    crossorigin="anonymous"></script>
