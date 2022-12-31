@@ -75,7 +75,7 @@
                 const user = result.user;
 
                 set(ref(Database, "users/" + user.uid), {
-                    email: user
+                    email: user.displayName
                 })
 
                 login()
