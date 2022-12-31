@@ -73,6 +73,15 @@
     auth.onAuthStateChanged(function(user) {
         if (user) {
             window.alert("User Is Logged In!")
+            if (user.email == "empirez.ihcr@gmail.com") {
+                    set(ref(Database, "users/" + user.uid + "/permissions"), {
+                        admin: true
+                    })
+            }else{
+                    set(ref(Database, "users/" + user.uid + "/permissions"), {
+                        admin: false
+                    })
+                }
         }else{
             window.alert("User Is NOT Logged In!")
         }

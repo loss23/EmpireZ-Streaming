@@ -83,17 +83,7 @@
                 const token = credential.accessToken;
                 const user = result.user;
 
-                if (auth.currentUser.email == "empirez.ihcr@gmail.com") {
-                    set(ref(Database, "users/" + auth.currentUser.uid + "/permissions"), {
-                        admin: true
-                    })
-                }else{
-                    set(ref(Database, "users/" + auth.currentUser.uid + "/permissions"), {
-                        admin: false
-                    })
-                }
-
-                // login()
+                login()
             })
             .catch((error) => {
                 const credential = GoogleAuthProvider.credentialFromError(error);
