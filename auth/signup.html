@@ -17,7 +17,10 @@
 
 <script type="module">
 
-    function login() {
+    function login(user) {
+        if (user != null){
+            user.sendEmailVerification();
+        }
         window.location.assign("../index.html")
     }
 
@@ -65,7 +68,7 @@
                     })
                 }
                 window.alert("Created User!")
-                login()
+                login(user)
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -83,7 +86,7 @@
                 const token = credential.accessToken;
                 const user = result.user;
 
-                login()
+                login(user)
             })
             .catch((error) => {
                 const credential = GoogleAuthProvider.credentialFromError(error);
