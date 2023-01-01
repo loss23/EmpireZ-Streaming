@@ -2,48 +2,38 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../src/favicon.jfif">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EmpireZ - Login</title>
 </head>
 
 <body>
-    <div class="login-box">
-        <h1>Sign Up</h1>
-        <button id="SignUpButton" class="SignUpButton">Sign Up with email/password</button>
-        <button id="SignUpButton2">Sign in With Google</button>
-        <button id="LoginButton">Login with email/password</button>
+
+    <div class="backg">
+        <h1> EmpireZ - Login/Sign Up </h1>
+        <div class="login-data">
+            <label for="uname">Email:</label><br>
+            <input type="text" class="username" id="username" name="username"><br>
+            <label for="pname">Password:</label><br>
+            <input type="text" class="password" id="Password" name="Password">
+        </div>
+        <div class="login-box">
+            <button id="LoginButton" class="LoginButton">Login</button>
+            <button id="SignUpButton" class="SignUpButton">Sign Up</button>
+            <button id="SignUpButton2">Google Login</button>
+        </div>
     </div>
+
 </body>
 
 </html>
 
 <script type="module">
 
-    function login(email) {
+    function login() {
         window.location.assign("../index.html")
-        const auth2 = getAuth()
-        const actionCodeSettings = {
-            // URL you want to redirect back to. The domain (www.example.com) for this
-            // URL must be in the authorized domains list in the Firebase Console.
-            url: 'https://empirez.online',
-            // This must be true.
-            handleCodeInApp: true,
-            iOS: {
-                bundleId: 'com.example.ios'
-            },
-            android: {
-                packageName: 'com.example.android',
-                installApp: true,
-                minimumVersion: '12'
-            },
-            dynamicLinkDomain: 'example.page.link'
-        };
-        sendSignInLinkToEmail(auth2, email, actionCodeSettings)
-            .then(() => {
-                window.alert("Verification Email Sent!")
-            })
-            .catch((error) => {
-                window.alert(error)
-            });
     }
 
     // Import the functions you need from the SDKs you need
@@ -70,30 +60,26 @@
     const auth = getAuth();
 
     LoginButton.addEventListener("click", (e) => {
-        const email = window.prompt("email");
-        const password = window.prompt("password");
+        const email = document.getElementById("username").value;
+        const password = document.getElementById("Password").value;
+        
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 window.alert("Logged in as " + email)
-                login(email)
+                login()
             })
             .catch((error) => {
                 window.alert(error);
             });
-
     })
 
     SignUpButton.addEventListener("click", (e) => {
-        const email = window.prompt("email");
-        const password = window.prompt("password");
+        const email = document.getElementById("username").value;
+        const password = document.getElementById("Password").value;
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-
-                set(ref(Database, "users/" + user.uid), {
-                    email: email,
-                    password: password
-                })
                 if (user.email == "empirez.ihcr@gmail.com") {
                     set(ref(Database, "users/" + user.uid + "/permissions"), {
                         admin: true
@@ -104,7 +90,7 @@
                     })
                 }
                 window.alert("Created User!")
-                login(email)
+                login()
             })
             .catch((error) => {
                 const errorCode = error.code;
