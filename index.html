@@ -136,7 +136,13 @@
     });
 
     pfp.onclick = function e() {
-        window.location.assign("auth/signup.html")
+        if (auth.currentUser){
+            if (window.confirm("Logout?")){
+                window.location.assign("auth/signup.html")
+            }
+        }else{
+            window.location.assign("auth/signup.html")
+        }
     }
 
 </script>
