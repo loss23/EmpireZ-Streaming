@@ -1,83 +1,43 @@
 <!DOCTYPE html>
 <link>
+    <head>
+        <link rel="stylesheet" href="../css/admin.css">
+        <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <link rel="stylesheet" href="../css/admin.css">
-    <link rel="shortcut icon" type="image/x-icon" href="../src/favicon.jfif">
+        <title>EmpireZ - Streaming</title>
+    </head>
+    
+    <body class="Background" onload="CheckStatus()">
+        
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <div class="container">
+              <ul class="Nav_Text">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../Pages/Shows.html">Shows</a></li>
+                <li><a href="../Pages/Movies.html">Movies</a></li>
+                <li><a href="../Pages/info.html">FAQ</a></li>
+              </ul>
 
-    <title>EmpireZ - Streaming</title>
-</head>
+          </div>
 
-<body class="Background">
+        <div class="Center">
+            <article>
+                <b>
+                   ~- EmpireZ Admin Panel -~
+                </b>
+            </article>
 
+            <input class="AnnounceInput">
+            <button class="AnnounceButton" onclick="Announce()">Announce</button>
 
-    <div class="container">
-        <ul class="Nav_Text">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../Pages/Shows.html">Shows</a></li>
-            <li><a href="../Pages/Movies.html">Movies</a></li>
-            <li><a href="../Pages/info.html">FAQ</a></li>
-        </ul>
+            <a class="codespace-link" href="https://loss23-shiny-broccoli-pw446994prgc97xp.github.dev">Codespace</a>
+        </div>
 
-    </div>
-
-    <div class="Center">
-        <article>
-            <b>
-                ~- EmpireZ Admin Panel -~
-            </b>
-        </article>
-
-        <input class="AnnounceInput">
-        <button class="AnnounceButton">Announce</button>
-
-    </div>
-
-</body>
+    </body>
 
 </html>
 
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getDatabase, set, ref, onValue, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
-        authDomain: "empirez---login.firebaseapp.com",
-        databaseURL: "https://empirez---login-default-rtdb.firebaseio.com",
-        projectId: "empirez---login",
-        storageBucket: "empirez---login.appspot.com",
-        messagingSenderId: "151017816130",
-        appId: "1:151017816130:web:dc6602378da2eef2556ddb",
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const Database = getDatabase(app);
-
-    const auth = getAuth();
-
-    auth.onAuthStateChanged(function (user) {
-        if (user) {
-            const UserData = ref(Database, 'users/' + user.uid + "/permissions"); onValue(UserData, (d) => {
-                const data = d.val();
-                if (data !== null || data !== undefined) {
-                    if (data["admin"] == true) {
-                        
-                    } else {
-                        window.location.assign("../index.html");
-                    }
-                }else {
-                    window.location.assign("../index.html");
-                }
-            })
-        }
-    })
-</script>
+<script src="../js/admin.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1282485383646277" crossorigin="anonymous"></script>

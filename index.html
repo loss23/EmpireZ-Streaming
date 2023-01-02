@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<link>
+
+<head>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EmpireZ - Streaming</title>
+</head>
+
+<body class="Background">
+
+
+    <div class="container">
+        <image class="logo_nav" src="src/EmpireZ.png"></image>
+        
+        <image class="Sign_up" src="src/image-removebg-preview.png"></image>
+
+        <div class="Nav_Text">
+        <ul >
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Pages/Shows.html">Shows</a></li>
+            <li><a href="Pages/Movies.html">Movies</a></li>
+            <li><a href="Pages/info.html">FAQ</a></li>
+        </ul>
+    </div>
+        <div class="searchnav">
+            <input type="text" placeholder="Search..">
+            </div>
+
+    </div>
+
+
+    <div class="Center">
+        <image class="logo" src="src/EmpireZ.png"></image>
+            <h2>
+                Welcome to EmpireZ - A free streaming service!
+            </h2>
+
+        <h1>
+            EmpireZ is a free online streaming service, where you can watch a ton of free shows and movies!
+        </h1>
+
+    <div class="Information">
+
+        <h2>
+            Convenience        
+        </h2>
+
+    <h1>
+        Our Streaming website allow users to access a wide range of content from any device with an internet connection, making it easy to watch movies, TV shows, and other videos anytime, anywhere.   
+     </h1>
+
+     <h2>
+        Cost        
+    </h2>
+
+    <h1>
+    Many streaming websites offer subscription, making them a more unaffordable option for people who want to watch a lot of content. Ours on the other hand is completely free!
+    </h1>
+
+    <h2>
+        Choice        
+    </h2>
+
+    <h1>
+        EmpireZ offers a large selection of movies, TV shows, and other video content, allowing you to choose from a wide range of options.    
+    </h1>
+
+    
+    <h2>
+        Quality        
+    </h2>
+
+    <h1>
+        EmpireZ offers high-quality video streams, with many offering options for high definition.    
+    </h1>
+
+    </div>
+    </div>
+
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged,  } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
+
+        const firebase = initializeApp({
+            apiKey: "AIzaSyCKp0SfJmixmwfndx5RlG43CDSMNCAhMVY",
+            authDomain: "empirez.firebaseapp.com",
+            projectId: "empirez",
+            storageBucket: "empirez.appspot.com",
+            messagingSenderId: "47991504506",
+            appId: "1:47991504506:web:61455db573015177af85c3",
+            measurementId: "G-DJPE51KXD3",
+        });
+        const auth = getAuth(firebase);
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                console.log('Logged in as');
+            } else {
+                console.log('No User');
+            }
+        });
+
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+       <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+
+</body>
+</html>
+
+<script src="js/index.js"></script>

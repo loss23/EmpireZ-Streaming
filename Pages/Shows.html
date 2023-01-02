@@ -1,197 +1,56 @@
 <!DOCTYPE html>
 <link>
+    <head>
+        <link rel="stylesheet" href="../css/VideoPlayer.css">
+        <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
 
-<head>
-    <link rel="stylesheet" href="../css/VideoPlayer.css">
-    <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EmpireZ - Streaming</title>
+    </head>
 
-    <title>EmpireZ - Streaming</title>
+    <body class="Background" onload="Page_Load()" onunload="Page_Unload()">
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TBZS96HY08"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+            <div class="container">
+                  <ul class="Nav_Text">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../Pages/Shows.html">Shows</a></li>
+                    <li><a href="../Pages/Movies.html">Movies</a></li>
+                    <li><a href="../Pages/info.html">FAQ</a></li>
+                  </ul>
+    
+              </div>
 
-  gtag('config', 'G-TBZS96HY08');
-</script>
-</head>
+        <div class="Center">
+            <h1>Shows</h1>
+            
+            <select onchange="ShowSelect()" name="Shows" class="Shows">
+                <option value="RickAndMorty">Rick And Morty</option>
+                <option value="FamilyGuy">Family Guy</option>
+                <option value="Spongebob">Spongebob</option>
+            </select>
 
-<body class="Background">
+            <select onchange="SeasonSelect()" name="Seasons" class="Seasons">
 
-    <div class="container">
-        <ul class="Nav_Text">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../Pages/Shows.html">Shows</a></li>
-            <li><a href="../Pages/Movies.html">Movies</a></li>
-            <li><a href="../Pages/info.html">FAQ</a></li>
-        </ul>
+            </select>
 
-    </div>
+            <select onchange="EpisodeSelect()" name="Episodes" class="Episodes">
 
-    <div class="Center">
-        <h1>Shows</h1>
+            </select>
 
-        <select id="Shows" name="Shows" class="Shows">
-            <option value="RickAndMorty">Rick And Morty</option>
-            <option value="FamilyGuy">Family Guy</option>
-            <option value="Spongebob">Spongebob</option>
-            <option value="BojackHorseman">Bojack Horseman</option>
-        </select>
+        </div>
 
-        <select id="Seasons" name="Seasons" class="Seasons">
 
-        </select>
+        <embed class="paypal-button" src="https://www.powr.io/paypal-button/i/34549205">
 
-        <select id="Episodes" name="Episodes" class="Episodes">
-
-        </select>
-
-        <video poster="../src/loading.gif" autoplay disableRemotePlayback controlsList="nodownload" id="VideoPlayer" onended="EpisodeEnd()" class="VideoPlayer" frameborder="0" allow="fullscreen" preload="metadata" controls scrolling="no"></video>
-
-    </div>
-
-</body>
+    </body>
 
 </html>
 
 <span class="Popup">Playing next episode in 4 seconds</span>
 
-<script type="module">
+<video poster="../src/loading.gif" autoplay controlsList="nodownload" onended="EpisodeEnd()" class="VideoPlayer" frameborder="0" allow="fullscreen" preload="auto" controls scrolling="no"></video>
+<script src="../js/index.js"></script>
 
-    const ShowDatabase = {
-        "RickAndMorty": {
-            "1": ["https://s3.tebi.io/index/RickAndMorty%20Ep1.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep2.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep3.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep4.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep5.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep6.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep7.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep8.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep9.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep10.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep11.mp4"]
-        },
-        "FamilyGuy": {
-            "1": ["https://s3.tebi.io/index/FamilyGuy1.mp4", "https://s3.tebi.io/index/FamilyGuy2.mp4"]
-        },
-        "Spongebob": {
-            "1": ["https://s3.tebi.io/index/Spongebob%20Ep1.mp4", "https://s3.tebi.io/index/Spongebob%20Ep2.mp4", "https://s3.tebi.io/index/Spongebob%20Ep3.mp4", "https://s3.tebi.io/index/Spongebob%20Ep4.mp4", "https://s3.tebi.io/index/Spongebob%20Ep5.mp4", "https://s3.tebi.io/index/Spongebob%20Ep6.mp4", "https://s3.tebi.io/index/Spongebob%20Ep7.mp4", "https://s3.tebi.io/index/Spongebob%20Ep8.mp4", "https://s3.tebi.io/index/Spongebob%20Ep9.mp4", "https://s3.tebi.io/index/Spongebob%20Ep10.mp4", "https://s3.tebi.io/index/Spongebob%20Ep11.mp4", "https://s3.tebi.io/index/Spongebob%20Ep12.mp4", "https://s3.tebi.io/index/Spongebob%20Ep13.mp4", "https://s3.tebi.io/index/Spongebob%20Ep14.mp4", "https://s3.tebi.io/index/Spongebob%20Ep15.mp4", "https://s3.tebi.io/index/Spongebob%20Ep16.mp4", "https://s3.tebi.io/index/Spongebob%20Ep17.mp4", "https://s3.tebi.io/index/Spongebob%20Ep18.mp4", "https://s3.tebi.io/index/Spongebob%20Ep19.mp4", "https://s3.tebi.io/index/Spongebob%20Ep20.mp4"],
-            "2": ["https://s3.tebi.io/index/SpongebobSeason2Ep1A.mp4"]
-        },
-        "BojackHorseman": {
-            "1": ["https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep1.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep2.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep3.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep4.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep5.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep6.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep7.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep8.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep9.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep10.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep11.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep12.mp4"]
-        }
-    }
-
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getDatabase, set, ref, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-    import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
-        authDomain: "empirez---login.firebaseapp.com",
-        databaseURL: "https://empirez---login-default-rtdb.firebaseio.com",
-        projectId: "empirez---login",
-        storageBucket: "empirez---login.appspot.com",
-        messagingSenderId: "151017816130",
-        appId: "1:151017816130:web:dc6602378da2eef2556ddb",
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const Database = getDatabase(app);
-    const auth = getAuth();
-
-    const user = auth.currentUser;
-
-    var ep_count = 0;
-    var Show;
-    var Season;
-
-    auth.onAuthStateChanged(function (user) {
-        if (user) {
-            const UserData = ref(Database, 'users/' + user.uid + "/data/Slot1"); onValue(UserData, (d) => {
-                const data = d.val();
-                if (data !== null && data !== undefined) {
-                    for (var i = 0; i < Object.keys(ShowDatabase[data["Show"]]).length; i++) {
-                        var x = document.createElement("option");
-                        var v = document.getElementsByClassName("Seasons").item(0).length + 1;
-                        x.text = "Season " + v;
-                        x.value = v;
-                        document.getElementsByClassName("Seasons").item(0).appendChild(x);
-                    }
-
-                    for (var i = 0; i < ShowDatabase[data["Show"]][data["Season"]].length; i++) {
-                        var x = document.createElement("option");
-                        var v = document.getElementsByClassName("Episodes").item(0).length + 1;
-                        x.text = "Episode " + v;
-                        x.value = ShowDatabase[data["Show"]][data["Season"]][v - 1]
-                        document.getElementsByClassName("Episodes").item(0).appendChild(x);
-                    }
-
-                    document.getElementsByClassName("VideoPlayer").item(0).src = data["Episode"];
-                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = data["TimeStamp"];
-                    document.getElementsByClassName("Shows").item(0).value = data["Show"];
-                    document.getElementsByClassName("Seasons").item(0).value = "1";
-                    document.getElementsByClassName("Episodes").item(0).value = data["Episode"];
-
-                } else {
-
-                    for (var i = 0; i < Object.keys(ShowDatabase["RickAndMorty"]).length; i++) {
-                        var x = document.createElement("option");
-                        var v = document.getElementsByClassName("Seasons").item(0).length + 1;
-                        x.text = "Season " + v;
-                        x.value = v;
-                        document.getElementsByClassName("Seasons").item(0).appendChild(x);
-                    }
-
-                    for (var i = 0; i < ShowDatabase["RickAndMorty"]["1"].length; i++) {
-                        var x = document.createElement("option");
-                        var v = document.getElementsByClassName("Episodes").item(0).length + 1;
-                        x.text = "Episode " + v;
-                        x.value = ShowDatabase["RickAndMorty"]["1"][v - 1]
-                        document.getElementsByClassName("Episodes").item(0).appendChild(x);
-                    }
-
-                    document.getElementsByClassName("VideoPlayer").item(0).src = ShowDatabase["RickAndMorty"]["1"][1];
-                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
-                    document.getElementsByClassName("Shows").item(0).value = "RickAndMorty";
-                    document.getElementsByClassName("Seasons").item(0).value = "1";
-                    ep_count = 0;
-                }
-                Show = document.getElementsByClassName("Shows").item(0).value;
-                Season = document.getElementsByClassName("Seasons").item(0).value;
-            })
-
-            Shows.onchange = function e() {
-                document.getElementsByClassName("VideoPlayer").item(0).src = ShowDatabase[document.getElementsByClassName("Shows").item(0).value]["1"][0];
-                document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
-                document.getElementsByClassName("Seasons").item(0).value = "1";
-                window.location.reload();
-            }
-            Episodes.onchange = function e() {
-                ep_count = ShowDatabase[Show][Season].indexOf(document.getElementsByClassName("Episodes").item(0).value);
-                document.getElementsByClassName("VideoPlayer").item(0).src = ShowDatabase[Show][Season][ep_count]
-                document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
-                window.location.reload();
-            }
-            VideoPlayer.onended = function e() {
-                document.getElementsByClassName("Popup").item(0).style.display = "block";
-                setTimeout(() => {
-                    ep_count = ShowDatabase[Show][Season].indexOf(document.getElementsByClassName("Episodes").item(0).value)+1;
-                    document.getElementsByClassName("VideoPlayer").item(0).src = ShowDatabase[Show][Season][ep_count]
-                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
-                    document.getElementsByClassName("Episodes").item(0).value = ShowDatabase[Show][Season][ep_count];
-                    document.getElementsByClassName("Popup").item(0).style.display = "none";
-                }, 4000);
-            }
-            window.onunload = function cool() {
-                set(ref(Database, "users/" + user.uid + "/data/Slot1"), {
-                    TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
-                    Show: document.getElementsByClassName("Shows").item(0).value,
-                    Episode: document.getElementsByClassName("VideoPlayer").item(0).src,
-                    Season: document.getElementsByClassName("Seasons").item(0).value
-                })
-            }
-        } else {
-            window.location.assign("../auth/signup.html")
-        }
-    })
-
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673"
+     crossorigin="anonymous"></script>

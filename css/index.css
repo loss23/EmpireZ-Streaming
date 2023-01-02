@@ -1,12 +1,22 @@
 body {
   background-color: rgb(34, 34, 34);
-  overflow: hidden;
   width: 100%;
 }
 
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
+
 .logo {
-  width: 24rem;
-  z-index: 2555;
+  width: 40rem;
+
+}
+
+.logo_nav{
+height:75px;
+float: left;
+padding-top: 10px;
+padding-left: 50px;
 }
 
 .Background {
@@ -16,14 +26,20 @@ body {
   background-size: cover;
   background-position: center;
   display: block;
-
-  overflow-y: scroll;
+  background-attachment: fixed;
+  overflow-y:auto;
+  overflow-x: hidden;
 }
 
 .container {
   background-color: #1b1b1b;
-  position: fixed;
+  position: absolute;
   text-align: center;
+  border-bottom: solid;
+  border-width: 5px;
+  padding-bottom: 1.5rem;
+  font-family: "Roboto", "Noto", sans-serif;
+
 
   top: 0rem;
   width: 100%;
@@ -31,22 +47,65 @@ body {
   left: 0rem;
   height: 4rem;
 
-  z-index: 25;
+  z-index: 1;
 }
 
-header {
-  background: #1f1c1a;
-  height: 100px;
-}
 
-header::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
+
+  /* The Center */
+  .Center {
+    
+    color: #6537AA;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 100%;
+    font-weight: bolder;
+  
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    
+  
+    width: 75%;
+    height: 60%;
+    top: 10rem;
+    left: 12%;
+  
+    text-align: center;
+    border-radius: 1px;
+  
+  }
+  
+  .Information {
+    margin-top: 20%;
+    padding-top: 20%;
+    padding-bottom: 10%;
+    border-top: solid;
+  }
+  
+  
+  /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+  header {
+    background: #1f1c1a;
+    height: 100px;
+  }
+  
+  header::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+  /* Nav Text */
 .Nav_Text {
-  position: relative;
 
 }
 
@@ -58,27 +117,30 @@ list-style: none;
 
 .Nav_Text li {
   display: inline-block;
-  padding-top: 15px;
+  padding-top: 30px;
   margin-right: 5rem;
-  left: 3rem;
+  left: -5rem;
   position: relative;
+
 }
 
 .Nav_Text a {
-  color: rgb(255, 255, 255);
+  color: #000;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 25px;
+  
+  
 }
 
 .Nav_Text a:hover {
-  color: rgb(0, 0, 0);
+  color: #6537AA;
 }
 .Nav_Text a::before {
   content: "";
   display: block;
   height: 5px;
-  background-color: rgb(0, 0, 0);
+  background-color: #6537AA;
 
   position: absolute;
   top: 0;
@@ -89,6 +151,21 @@ list-style: none;
 .Nav_Text a:hover::before {
   width: 100%;
 }
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.Sign_up {
+  position: absolute;
+  margin-top: 1%;
+  margin-left: 35%;
+  width: 3%;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 
 .info_button {
   color: rgb(255, 255, 255);
@@ -110,29 +187,57 @@ list-style: none;
   left: 21.3rem;
   cursor: grab;
 }
+  /* End of Nav Text */
 
-.Center {
-  background-color: #1b1b1bc3;
-  color: rgb(255, 255, 255);
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 100%;
 
+  /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+.searchnav {
+    background-color: #1a1a1a;
+
+  }
+  
+
+  /* Style of search box */
+  .searchnav input[type=text] {
+
+    font-size: 15px;
+    background-color: #1a1a1a;
+    color: white;
+    padding-top: 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 40%;
+    margin-top: -1000%;
+
+  }
+  
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
+.Footernav{
+  background-color: #1b1b1b;
   position: relative;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
-
-
-  width: 75%;
-  height: 60%;
-  top: 10rem;
-  left: 12%;
-
   text-align: center;
-  border-radius: 10px;
+
+  margin-left: -5%;
+  bottom: -28%;
+  width: 1000%;
+  right: 0rem;
+  left: 0rem;
+  height: 15rem;
+
 
 }
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 
 .Ads {
   position: absolute;
@@ -161,6 +266,10 @@ list-style: none;
   bottom: 5rem;
   left: 50rem;
 }
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 
 .paypal-button {
   position: absolute;
