@@ -164,7 +164,6 @@
                 ep_count = ShowDatabase[Show][Season].indexOf(document.getElementsByClassName("Episodes").item(0).value);
                 document.getElementsByClassName("VideoPlayer").item(0).src = ShowDatabase[Show][Season][ep_count]
                 document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
-                window.location.reload();
             }
             Seasons.onchange = function e() {
                 Season = document.getElementsByClassName("Seasons").item(0).value;
