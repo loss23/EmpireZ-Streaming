@@ -67,7 +67,7 @@
     }
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getDatabase, set, ref, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getDatabase, set, ref, child, get, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
     import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -93,10 +93,19 @@
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
-            const UserData = ref(Database, 'users/' + user.uid + "/data/Slot1"); onValue(UserData, (d) => {
+
+            const UserData1 = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData1, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
-                    for (var i = 0; i < Object.keys(ShowDatabase[data["Show"]]).length; i++) {
+                    document.getElementsByClassName("Shows").item(0).value = data["Show"]
+                    Show = document.getElementsByClassName("Shows").item(0).value;
+                }
+            });
+
+            const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
+                const data = d.val();
+                if (data !== null && data !== undefined) {
+                    for (var i = 0; i < Object.keys(ShowDatabase[Show]).length; i++) {
                         var x = document.createElement("option");
                         var v = document.getElementsByClassName("Seasons").item(0).length + 1;
                         x.text = "Season " + v;
@@ -104,19 +113,19 @@
                         document.getElementsByClassName("Seasons").item(0).appendChild(x);
                     }
 
-                    for (var i = 0; i < ShowDatabase[data["Show"]][data["Season"]].length; i++) {
+                    for (var i = 0; i < ShowDatabase[Show][data[Show]["Season"]].length; i++) {
                         var x = document.createElement("option");
                         var v = document.getElementsByClassName("Episodes").item(0).length + 1;
                         x.text = "Episode " + v;
-                        x.value = ShowDatabase[data["Show"]][data["Season"]][v - 1]
+                        x.value = ShowDatabase[Show][data[Show]["Season"]][v - 1]
                         document.getElementsByClassName("Episodes").item(0).appendChild(x);
                     }
 
-                    document.getElementsByClassName("VideoPlayer").item(0).src = data["Episode"];
-                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = data["TimeStamp"];
+                    document.getElementsByClassName("VideoPlayer").item(0).src = data[Show]["Episode"];
+                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = data[Show]["TimeStamp"];
                     document.getElementsByClassName("Shows").item(0).value = data["Show"];
-                    document.getElementsByClassName("Seasons").item(0).value = "1";
-                    document.getElementsByClassName("Episodes").item(0).value = data["Episode"];
+                    document.getElementsByClassName("Seasons").item(0).value = data[Show]["Season"];
+                    document.getElementsByClassName("Episodes").item(0).value = data[Show]["Episode"];
 
                 } else {
 
@@ -142,7 +151,6 @@
                     document.getElementsByClassName("Seasons").item(0).value = "1";
                     ep_count = 0;
                 }
-                Show = document.getElementsByClassName("Shows").item(0).value;
                 Season = document.getElementsByClassName("Seasons").item(0).value;
             })
 
@@ -160,7 +168,7 @@
             }
             Seasons.onchange = function e() {
                 Season = document.getElementsByClassName("Seasons").item(0).value;
-                ep_count = ShowDatabase[Show][Season].indexOf(document.getElementsByClassName("Episodes").item(0).value);
+                ep_count = 0;
                 document.getElementsByClassName("VideoPlayer").item(0).src = ShowDatabase[Show][Season][ep_count]
                 document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
                 window.location.reload();
@@ -176,9 +184,11 @@
                 }, 4000);
             }
             window.onunload = function cool() {
-                set(ref(Database, "users/" + user.uid + "/data/Slot1"), {
+                update(ref(Database, "users/" + user.uid + "/data"), {
+                    Show: document.getElementsByClassName("Shows").item(0).value
+                })
+                update(ref(Database, "users/" + user.uid + "/data/" + Show), {
                     TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
-                    Show: document.getElementsByClassName("Shows").item(0).value,
                     Episode: document.getElementsByClassName("VideoPlayer").item(0).src,
                     Season: document.getElementsByClassName("Seasons").item(0).value
                 })
