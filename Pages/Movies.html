@@ -9,7 +9,7 @@
         <title>EmpireZ - Streaming</title>
     </head>
 
-    <body class="Background" onload="Page_Load2()" onunload="Page_Unload2()">
+    <body class="Background">
 
 
             <div class="container">
@@ -25,13 +25,13 @@
         <div class="Center">
             <h1> Movies </h1>
             
-            <select onchange="MovieSelect()" name="Movies" class="Movies">
+            <select id="Movies" name="Movies" class="Movies">
                 <option value="Spongebob">Spongebob</option>
                 <option value="N/A">PLACEHOLDER</option>
             </select>
         </div>
 
-<video poster="../src/loading.gif" autoplay controlsList="nodownload" class="VideoPlayer" frameborder="0" allow="fullscreen" preload="auto" controls scrolling="no"></video>
+<video id="VideoPlayer" poster="../src/loading.gif" autoplay controlsList="nodownload" class="VideoPlayer" frameborder="0" allow="fullscreen" preload="auto" controls scrolling="no"></video>
 
 
 
