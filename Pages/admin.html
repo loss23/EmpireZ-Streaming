@@ -9,7 +9,7 @@
         <title>EmpireZ - Streaming</title>
     </head>
     
-    <body class="Background" onload="CheckStatus()">
+    <body class="Background">
         
 
         <div class="container">
@@ -23,16 +23,8 @@
           </div>
 
         <div class="Center">
-            <article>
-                <b>
-                   ~- EmpireZ Admin Panel -~
-                </b>
-            </article>
-
-            <input class="AnnounceInput">
-            <button class="AnnounceButton" onclick="Announce()">Announce</button>
-
-            <a class="codespace-link" href="https://loss23-shiny-broccoli-pw446994prgc97xp.github.dev">Codespace</a>
+            <input id="Input1" placeholder="text goes here..." type="text">
+            <button id="Announce">Announce</button>
         </div>
 
     </body>
@@ -42,7 +34,7 @@
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getDatabase, set, ref, onValue, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getDatabase, set, update, ref, onValue, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
     import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -78,6 +70,16 @@
                     window.location.assign("../index.html");
                 }
             })
+
+            Announce.onclick = function e(){
+                var txt = document.getElementById("Input1").value;
+                update(ref(Database, "admin_data/announcement/" + new Date().toJSON().slice(0, 10) + new Date().getTime()), {
+                    txt: txt,
+                    email: user.email,
+                    time: new Date().toJSON().slice(0, 10),
+                });
+                window.alert("Sent message to server, updating values soon!")
+            }
         }
     })
 </script>
