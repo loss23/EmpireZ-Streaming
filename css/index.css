@@ -275,3 +275,7 @@ list-style: none;
   position: absolute;
   z-index: 21412412450;
 }
+
+.Sign_up:hover {
+  cursor: grab;
+}

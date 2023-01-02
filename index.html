@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link>
+<html>
 
 <head>
     <link rel="stylesheet" href="css/index.css">
@@ -21,8 +21,7 @@
   gtag('config', 'G-TBZS96HY08');
 </script>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673" crossorigin="anonymous"></script>
 </head>
 
 <body class="Background">
@@ -31,7 +30,7 @@
     <div class="container">
         <image class="logo_nav" src="src/EmpireZ.png"></image>
         
-        <image class="Sign_up" src="src/image-removebg-preview.png"></image>
+        <image class="Sign_up" id="pfp" src="src/image-removebg-preview.png"></image>
 
         <div class="Nav_Text">
         <ul >
@@ -96,39 +95,9 @@
     </div>
     </div>
 
+    </body>
 
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
-        import { getAuth, onAuthStateChanged,  } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
-
-        const firebase = initializeApp({
-            apiKey: "AIzaSyCKp0SfJmixmwfndx5RlG43CDSMNCAhMVY",
-            authDomain: "empirez.firebaseapp.com",
-            projectId: "empirez",
-            storageBucket: "empirez.appspot.com",
-            messagingSenderId: "47991504506",
-            appId: "1:47991504506:web:61455db573015177af85c3",
-            measurementId: "G-DJPE51KXD3",
-        });
-        const auth = getAuth(firebase);
-
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                console.log('Logged in as');
-            } else {
-                console.log('No User');
-            }
-        });
-
-    </script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-       <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
-
-</body>
 </html>
-
-<script src="js/index.js"></script>
 
 <script type="Module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
@@ -150,7 +119,6 @@
     const auth = getAuth();
     auth.onAuthStateChanged(function(user) {
         if (user) {
-            window.alert("User Is Logged In!")
             console.log(user)
             if (user.email !== null && user.email == "empirez.ihcr@gmail.com") {
                     set(ref(Database, "users/" + user.uid + "/permissions"), {
@@ -162,8 +130,13 @@
                     })
                 }
         }else{
-            window.alert("User Is NOT Logged In!")
+            
         }
-});
+        
+    });
+
+    pfp.onclick = function e() {
+        window.location.assign("auth/signup.html")
+    }
 
 </script>
