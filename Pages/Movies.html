@@ -38,8 +38,66 @@
     </body>
 
 </html>
-<script src="../js/index.js"></script>
 
+<script type="module">
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673"
-     crossorigin="anonymous"></script>
+    const MovieDatbase = {
+        "Spongebob": "https://s3.tebi.io/index/Spongebob/SpongebobMovie.mp4",
+        "Spider-Man; Into The Spiderverse" : "https://s3.tebi.io/index/Spider-Man/SpidermanIntoTheSpiderVerse.mp4"
+    }
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getDatabase, set, ref, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
+        authDomain: "empirez---login.firebaseapp.com",
+        databaseURL: "https://empirez---login-default-rtdb.firebaseio.com",
+        projectId: "empirez---login",
+        storageBucket: "empirez---login.appspot.com",
+        messagingSenderId: "151017816130",
+        appId: "1:151017816130:web:dc6602378da2eef2556ddb",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const Database = getDatabase(app);
+    const auth = getAuth();
+
+    const user = auth.currentUser;
+
+    function MovieSelect() {
+        document.getElementsByClassName("VideoPlayer").item(0).src = MovieDatbase[document.getElementById("Movies").value]
+    }
+
+    document.getElementById("Movies").onchange = function e() {
+        MovieSelect();
+    }
+
+    auth.onAuthStateChanged(function (user) {
+        if (user) {
+            const UserData = ref(Database, 'users/' + user.uid + "/data/Movie"); onValue(UserData, (d) => {
+                const data = d.val();
+                if (data !== null && data !== undefined) {
+
+                    document.getElementsByClassName("VideoPlayer").item(0).src = data["Movie"];
+                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = data["TimeStamp"];
+
+                } else {
+                    document.getElementsByClassName("VideoPlayer").item(0).src = MovieDatbase["Spongebob"];
+                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
+                }
+            })
+            window.onunload = function cool() {
+                set(ref(Database, "users/" + user.uid + "/data/Movie"), {
+                    TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
+                    Movie: document.getElementsByClassName("VideoPlayer").item(0).src
+                })
+            }
+        } else {
+            window.location.assign("../auth/signup.html")
+        }
+    })
+
+</script>
