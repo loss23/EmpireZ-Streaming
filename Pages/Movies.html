@@ -29,7 +29,7 @@
             
             <select id="Movies" name="Movies" class="Movies">
                 <option value="Spongebob">Spongebob</option>
-                <option value="N/A">PLACEHOLDER</option>
+                <option value="Spider-Man; Into The Spiderverse">Spider-Man; Into The Spiderverse</option>
             </select>
         </div>
 
@@ -49,7 +49,7 @@
     }
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getDatabase, set, ref, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getDatabase, set, ref, child, get, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
     import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -79,7 +79,7 @@
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
-            const UserData = ref(Database, 'users/' + user.uid + "/data/Movie"); onValue(UserData, (d) => {
+            const UserData = ref(Database, 'users/' + user.uid + "/data/Movies" + Movie); onValue(UserData, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
 
@@ -92,7 +92,7 @@
                 }
             })
             window.onunload = function cool() {
-                set(ref(Database, "users/" + user.uid + "/data/Movie"), {
+                update(ref(Database, "users/" + user.uid + "/data/Movies/" + Movie), {
                     TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
                     Movie: document.getElementsByClassName("VideoPlayer").item(0).src
                 })
