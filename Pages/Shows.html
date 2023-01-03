@@ -98,7 +98,6 @@
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
-
             const UserData1 = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData1, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {

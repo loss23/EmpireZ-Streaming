@@ -79,20 +79,26 @@
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
-            const UserData = ref(Database, 'users/' + user.uid + "/data/Movies" + Movie); onValue(UserData, (d) => {
+            var Movie;
+
+            const UserData1 = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData1, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
-
-                    document.getElementsByClassName("VideoPlayer").item(0).src = data["Movie"];
-                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = data["TimeStamp"];
-
-                } else {
-                    document.getElementsByClassName("VideoPlayer").item(0).src = MovieDatbase["Spongebob"];
-                    document.getElementsByClassName("VideoPlayer").item(0).currentTime = 0;
+                    document.getElementsByClassName("Movies").item(0).value = data["Movie"]
+                    Movie = document.getElementsByClassName("Movies").item(0).value;
+                }else {
+                    Movie = "Spongebob"
                 }
-            })
+
+                document.getElementById("VideoPlayer").src = MovieDatbase[Movie];
+                document.getElementById("VideoPlayer").currentTime = data["Movies"][Movie]["TimeStamp"];
+            });
+
             window.onunload = function cool() {
-                update(ref(Database, "users/" + user.uid + "/data/Movies/" + Movie), {
+                update(ref(Database, "users/" + user.uid + "/data"), {
+                    Movie: document.getElementsByClassName("Movies").item(0).value
+                })
+                update(ref(Database, "users/" + user.uid + "/data/Movies/" + document.getElementsByClassName("Movies").item(0).value), {
                     TimeStamp: document.getElementsByClassName("VideoPlayer").item(0).currentTime,
                     Movie: document.getElementsByClassName("VideoPlayer").item(0).src
                 })
