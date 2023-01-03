@@ -106,7 +106,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getDatabase, set, ref, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
@@ -120,10 +120,11 @@
     const app = initializeApp(firebaseConfig);
     const Database = getDatabase(app);
     
+
     const auth = getAuth();
+
     auth.onAuthStateChanged(function(user) {
         if (user) {
-            console.log(user)
             if (user.email !== null && user.email == "empirez.ihcr@gmail.com" || user.email == "butfur69@gmail.com" || user.email == "mebob248888@gmail.com" || user.email == "eaglesrok1@gmail.com") {
                     set(ref(Database, "users/" + user.uid + "/permissions"), {
                         admin: true
@@ -133,9 +134,16 @@
                         admin: false
                     })
                 }
-        }else{
-            
         }
+
+        const UserData = ref(Database, "users/" + user.uid + "/data/settings"); onValue(UserData, (d) => {
+            const data = d.val();
+            if (data["pfp"] !== null) {
+                document.getElementById("pfp").src = data["pfp"];
+            }else {
+                
+            }
+        });
         
     });
 

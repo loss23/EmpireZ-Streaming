@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - EmpireZ</title>
+</head>
+<body>
+    <div class="SettingsHead">
+        <h1>Settings: </h1>
+    </div>
+    <div class="SettingsBody">
+        <input class="ImageFile" id="ImageFile" type="file">
+        <button class="UploadFile" id="UploadFile">Upload Profile Icon</button>
+    </div>
+    <div class="SettingsFooter">
+
+    </div>
+</body>
+</html>
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getDatabase, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendSignInLinkToEmail, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
+        authDomain: "empirez---login.firebaseapp.com",
+        databaseURL: "https://empirez---login-default-rtdb.firebaseio.com",
+        projectId: "empirez---login",
+        storageBucket: "empirez---login.appspot.com",
+        messagingSenderId: "151017816130",
+        appId: "1:151017816130:web:dc6602378da2eef2556ddb",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const Database = getDatabase(app);
+    const auth = getAuth();
+
+    auth.onAuthStateChanged(function(user) {
+
+        UploadFile.onclick = function e(){
+            update(ref(Database, "users/" + user.uid + "/data/settings"), {
+                pfp: document.getElementById("ImageFile").value
+            })
+            window.alert("Updated Settings!")
+        }
+
+    });
+</script>
