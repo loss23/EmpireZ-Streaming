@@ -48,6 +48,7 @@
     auth.onAuthStateChanged(function(user) {
 
         UploadFile.onclick = function e(){
+            window.alert(document.getElementById("ImageFile").value)
             update(ref(Database, "users/" + user.uid + "/data/settings"), {
                 pfp: document.getElementById("ImageFile").value
             })
