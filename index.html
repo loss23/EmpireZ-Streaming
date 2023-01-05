@@ -1,108 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="shortcut icon" type="image/x-icon" href="src/favicon.jfif">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free video/cartoon/movie streaming! Sign Up Required!">
-    <meta name="keywords" content="video, free, streaming, signup, datastore">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>EmpireZ - Streaming</title>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBZS96HY08"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-TBZS96HY08');
-    </script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6525145895161673" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="Stylesheet">
+    <title>EmpireZ - Streaming [TEST]</title>
 </head>
-
-<body class="Background">
-
-
-    <div class="container">
-        <image class="logo_nav" src="src/EmpireZ.png"></image>
-
-        <image class="Sign_up" id="pfp" src="src/image-removebg-preview.png"></image>
-
-        <div class="Nav_Text">
-            <ul>
+<body>
+    <div class="header">
+        <div class="navbar">
+                <ul class="Nav_Text">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="Pages/Shows.html">Shows</a></li>
-                <li><a href="Pages/Movies.html">Movies</a></li>
                 <li><a href="Pages/info.html">FAQ</a></li>
             </ul>
+            <image class="pfp" id="pfp" src="src/image-removebg-preview.png"></image>
         </div>
-        <div class="searchnav">
-            <input type="text" placeholder="Search..">
-        </div>
-
     </div>
-
-
-    <div class="Center">
-        <image class="logo" src="src/EmpireZ.png"></image>
-        <h2>
-            Welcome to EmpireZ - A free streaming service!
-        </h2>
-
-        <h1>
-            EmpireZ is a free online streaming service, where you can watch a ton of free shows and movies!
-        </h1>
-
-        <div class="Information">
-
-            <h2>
-                Convenience
-            </h2>
-
-            <h1>
-                Our Streaming website allow users to access a wide range of content from any device with an internet
-                connection, making it easy to watch movies, TV shows, and other videos anytime, anywhere.
-            </h1>
-
-            <h2>
-                Cost
-            </h2>
-
-            <h1>
-                Many streaming websites offer subscription, making them a more unaffordable option for people who want
-                to watch a lot of content. Ours on the other hand is completely free!
-            </h1>
-
-            <h2>
-                Choice
-            </h2>
-
-            <h1>
-                EmpireZ offers a large selection of movies, TV shows, and other video content, allowing you to choose
-                from a wide range of options.
-            </h1>
-
-
-            <h2>
-                Quality
-            </h2>
-
-            <h1>
-                EmpireZ offers high-quality video streams, with many offering options for high definition.
-            </h1>
+    <div class="body">
+        <image class="logo" src="src/empirez.png"></image>
+        <div class="ContinueWatching">
+            <div class="Sect">
+                    <image id="Show1" src="src/bb.jfif"></image>
+                    <div id="InfoBox" class="InfoBox">
+                        <h3>Mild-mannered high school chemistry teacher Walter White thinks his life can't get much worse. His salary barely makes ends meet, a situation not likely to improve once his pregnant wife gives birth, and their teenage son is battling cerebral palsy. But Walter is dumbstruck when he learns he has terminal cancer. Realizing that his illness probably will ruin his family financially, Walter makes a desperate bid to earn as much money as he can in the time he has left by turning an old RV into a meth lab on wheels.</h3>
+                    </div>
+             </div>
+        </div>
+        <div class="Recommended">
 
         </div>
     </div>
-
+    <div class="footer">
+        <ul>
+            <li>
+                <h3>EmpireZ - 2023</h3>
+            </li>
+        </ul>
+    </div>
 </body>
+</html>
 
-<script type="Module">
-    "use strict";
+<script type="module">
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
@@ -119,43 +59,29 @@
     };
     const app = initializeApp(firebaseConfig);
     const Database = getDatabase(app);
-
     const auth = getAuth();
-
+    
     auth.onAuthStateChanged(function(user) {
         if (user) {
-            if (user.email !== null && user.email == "empirez.ihcr@gmail.com" || user.email == "butfur69@gmail.com" || user.email == "mebob248888@gmail.com" || user.email == "eaglesrok1@gmail.com") {
-                    set(ref(Database, "users/" + user.uid + "/permissions"), {
-                        admin: true
-                    })
-            }else{
-                    set(ref(Database, "users/" + user.uid + "/permissions"), {
-                        admin: false
-                    })
-                }
-        }
-
-        const UserData = ref(Database, "users/" + user.uid + "/data/settings"); onValue(UserData, (d) => {
-            const data = d.val();
-            if (data["pfp"] !== null) {
-                document.getElementById("pfp").src = data["pfp"];
-            }else {
-                
+            Show1.onclick = function e() {
+                set(ref(Database, "users/" + user.uid + "/data"), {
+                    show: "BreakingBad"
+                })
+                window.location.assign("Pages/EpisodeViewer.html")
             }
-        });
-
+            Show1.onmouseover = function e() {
+                setTimeout(() => {
+                    document.getElementById("InfoBox").style.visibility="Visible";
+                }, 625);
+            }
+            Show1.onmouseleave = function e() {
+                setTimeout(() => {
+                    document.getElementById("InfoBox").style.visibility="Hidden";
+                }, 545);
+            }
+            pfp.onclick = function e() {
+                window.alert("m")
+            }
+        }
     });
-
-    pfp.onclick = function e() {
-        if (auth.currentUser){
-            if (window.confirm("Logout?")){
-                window.location.assign("auth/logout.html")
-            }
-        }else{
-            window.location.assign("auth/signup.html")
-        }
-    }
-
 </script>
-
-</html>
