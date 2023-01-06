@@ -75,10 +75,17 @@ body{
 }
 
 .Sect {
-    position: absolute;
+    position: relative;
     text-align: left;
-    left: 1%;
-    top: 20%;
+    left: -17rem;
+    top: 7.5rem;
+}
+
+.Sect2 {
+    position: relative;
+    text-align: left;
+    left: -2rem;
+    top: -1rem;
 }
 
 .Sect img {
@@ -90,7 +97,25 @@ body{
     transition-delay: 80ms;
 }
 
+.Sect2 img {
+    aspect-ratio: 2/1.3;
+    max-width: 30%;
+    height: auto;  
+    border-radius: 5%;
+    transition: 1000ms;
+    transition-delay: 80ms;
+}
+
 .Sect img:hover {
+    max-width: 33.5%;
+    height: auto;  
+    border-radius: 5%;
+    cursor: pointer;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 1px 2px 2px 1px rgba(96, 11, 130, 0.459);
+}
+
+.Sect2 img:hover {
     max-width: 33.5%;
     height: auto;  
     border-radius: 5%;
@@ -136,14 +161,15 @@ body{
     word-wrap: break-word;
     width: 45%;
     font-size: .75rem;
-    background-color: rgba(35, 35, 35, 0.575);
+    background-color: rgb(35, 35, 35);
     border-radius: 5%;
+    z-index: 2500000;
 
     width: 45%;
 
     visibility: hidden;
     
-    bottom: -20%;
+    bottom: -30%;
     left: 34%;
     transition: 45ms;
 

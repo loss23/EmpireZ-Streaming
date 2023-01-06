@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,11 @@
     <link href="css/style.css" rel="Stylesheet">
     <title>EmpireZ - Streaming [TEST]</title>
 </head>
+
 <body>
     <div class="header">
         <div class="navbar">
-                <ul class="Nav_Text">
+            <ul class="Nav_Text">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="Pages/Shows.html">Shows</a></li>
                 <li><a href="Pages/info.html">FAQ</a></li>
@@ -22,11 +24,22 @@
         <image class="logo" src="src/empirez.png"></image>
         <div class="ContinueWatching">
             <div class="Sect">
-                    <image id="Show1" src="src/bb.jfif"></image>
-                    <div id="InfoBox" class="InfoBox">
-                        <h3>Mild-mannered high school chemistry teacher Walter White thinks his life can't get much worse. His salary barely makes ends meet, a situation not likely to improve once his pregnant wife gives birth, and their teenage son is battling cerebral palsy. But Walter is dumbstruck when he learns he has terminal cancer. Realizing that his illness probably will ruin his family financially, Walter makes a desperate bid to earn as much money as he can in the time he has left by turning an old RV into a meth lab on wheels.</h3>
-                    </div>
-             </div>
+                <image id="Show1" src="src/bb.jfif"></image>
+                <div id="InfoBox" class="InfoBox">
+                    <h3>Mild-mannered high school chemistry teacher Walter White thinks his life can't get much worse.
+                        His salary barely makes ends meet, a situation not likely to improve once his pregnant wife
+                        gives birth, and their teenage son is battling cerebral palsy. But Walter is dumbstruck when he
+                        learns he has terminal cancer. Realizing that his illness probably will ruin his family
+                        financially, Walter makes a desperate bid to earn as much money as he can in the time he has
+                        left by turning an old RV into a meth lab on wheels.</h3>
+                </div>
+            </div>
+            <div class="Sect2">
+                <image id="Show2" src="src/metastasis.jpg"></image>
+                <div id="InfoBox2" class="InfoBox">
+                    <h3>Metástasis is a Colombian telenovela series, a Spanish language remake of the American crime drama Breaking Bad that transposes the events of the original from the United States to Colombia.</h3>
+                </div>
+            </div>
         </div>
         <div class="Recommended">
 
@@ -40,6 +53,7 @@
         </ul>
     </div>
 </body>
+
 </html>
 
 <script type="module">
@@ -60,28 +74,48 @@
     const app = initializeApp(firebaseConfig);
     const Database = getDatabase(app);
     const auth = getAuth();
-    
-    auth.onAuthStateChanged(function(user) {
-        if (user) {
-            Show1.onclick = function e() {
+
+    auth.onAuthStateChanged(function (user) {
+
+        function Show_Change(show) {
+            if (user) {
                 set(ref(Database, "users/" + user.uid + "/data"), {
-                    show: "BreakingBad"
+                    show: show
                 })
                 window.location.assign("Pages/EpisodeViewer.html")
+            }else {
+                
             }
-            Show1.onmouseover = function e() {
-                setTimeout(() => {
-                    document.getElementById("InfoBox").style.visibility="Visible";
-                }, 625);
-            }
-            Show1.onmouseleave = function e() {
-                setTimeout(() => {
-                    document.getElementById("InfoBox").style.visibility="Hidden";
-                }, 545);
-            }
-            pfp.onclick = function e() {
-                window.alert("m")
-            }
+        }
+
+        Show1.onclick = function e() {
+            Show_Change("BreakingBad");
+        }
+        Show1.onmouseover = function e() {
+            setTimeout(() => {
+                document.getElementById("InfoBox").style.visibility = "Visible";
+            }, 625);
+        }
+        Show1.onmouseleave = function e() {
+            setTimeout(() => {
+                document.getElementById("InfoBox").style.visibility = "Hidden";
+            }, 545);
+        }
+        Show2.onmouseover = function e() {
+            setTimeout(() => {
+                document.getElementById("InfoBox2").style.visibility = "Visible";
+            }, 625);
+        }
+        Show2.onmouseleave = function e() {
+            setTimeout(() => {
+                document.getElementById("InfoBox2").style.visibility = "Hidden";
+            }, 545);
+        }
+        Show2.onclick = function e() {
+            Show_Change("Metastasis");
+        }
+        pfp.onclick = function e() {
+            window.alert("m")
         }
     });
 </script>
