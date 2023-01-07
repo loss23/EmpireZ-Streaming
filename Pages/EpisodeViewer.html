@@ -44,7 +44,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-    import { getDatabase, set, ref, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getDatabase, set, ref, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
@@ -61,6 +61,13 @@
 
     auth.onAuthStateChanged(function(user) {
         if (user) {
+
+            window.onunload = function e() {
+                update(ref(Database, "users/" + user.uid + "/data"), {
+                    
+                })
+            }
+
             const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
