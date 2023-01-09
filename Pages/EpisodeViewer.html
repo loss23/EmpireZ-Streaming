@@ -74,7 +74,11 @@
                 const data = d.val();
                 if (data !== null && data !== undefined) {
                     document.title = data["Show"];
-                    video_player.src = data["Episode"];
+                    if (data["Episode"] !== 1) {
+                        video_player.src = data["Episode"];
+                    }else {
+                        video_player.src = ShowList[data["Show"][1][1]];
+                    }
                     Cur_Show = data["Show"];
                 }else {
                     document.title = "Spongebob";
