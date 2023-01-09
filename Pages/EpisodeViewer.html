@@ -10,11 +10,10 @@
     <div class="header">
         <div class="navbar">
                 <ul class="Nav_Text">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="Shows.html">Shows</a></li>
-                <li><a href="info.html">FAQ</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="/info.html">Info</a></li>
+                </ul>
                 <image class="pfp" id="pfp" src="../src/image-removebg-preview.png"></image>
-            </ul>
         </div>
     </div>
     <video controls id="video_player" class="video_player" src="../src/RickAndMorty1.mp4" preload="metadata" poster="../src/EmpireZ-Banner.png"></video>
@@ -23,6 +22,8 @@
 
 <script type="module">
 
+    var Cur_Show;
+    var Season;
     const ShowList = {
         "RickAndMorty": {
             "1": ["https://s3.tebi.io/index/RickAndMorty%20Ep1.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep2.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep3.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep4.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep5.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep6.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep7.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep8.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep9.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep10.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep11.mp4"]
@@ -64,15 +65,18 @@
 
             window.onunload = function e() {
                 update(ref(Database, "users/" + user.uid + "/data"), {
-                    
+                    Show: Cur_Show,
+                    Episode: video_player_get_episode.src,
+                    Season: 1
                 })
             }
 
             const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
-                    document.title = data["Show"] + " ep.1";
-                    video_player.src = ShowList[data["Show"]]["1"][0]
+                    document.title = data["Show"];
+                    video_player.src = ShowList[data["Show"]][data["Season"]][data["Episode"]]
+                    Cur_Show = data["Show"]
                 }
             });
         }

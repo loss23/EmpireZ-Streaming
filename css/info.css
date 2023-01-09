@@ -1,0 +1,102 @@
+body{
+    width: 100%;
+    background-color: rgb(23, 23, 23);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    color: white;
+    background-color: rgba(37, 37, 37, 0.566);
+    position: absolute;
+    background-attachment: fixed;
+    height: 2.4rem;
+    top: 0rem;
+    left: 0rem;
+    right: auto;
+    width: 101%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2500;
+}
+
+.Nav_Text ul {
+    list-style: none;
+}
+
+.Nav_Text li {
+  display: inline-block;
+  left: -2rem;
+  top: -.7rem;
+  margin-right: 1.5rem;
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Nav_Text a {
+  color: rgb(88, 2, 163);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 25px;
+}
+
+.Nav_Text a:hover {
+  color: #6537AA;
+}
+.Nav_Text a::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background-color: #6537AA;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 50ms;
+}
+.Nav_Text a:hover::before {
+  width: 100%;
+}
+
+.pfp {
+    max-width: 3%;
+    width: auto;
+    position: absolute;
+    top: 0rem;
+    right: 1rem;
+    transition: 45ms;
+}
+
+.pfp:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .pfp {
+        width: 25%;
+        position: absolute;
+        top: 0rem;
+        right: 1rem;
+    }
+}
+
+.body{
+    text-align: center;
+}
+.body h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    color:white;
+    top: 1.2rem;
+}
+.body h3 {
+    color:white;
+    top: .5rem;
+    position: relative;
+}
