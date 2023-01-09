@@ -60,13 +60,26 @@
     const Database = getDatabase(app);
     const auth = getAuth();
 
+    window.onunload = function e() {
+        update(ref(Database, "users/" + user.uid + "/data"), {
+                    Show: Cur_Show,
+                    Episode: video_player.src,
+                    Season: 1
+        })
+    }
+
     auth.onAuthStateChanged(function(user) {
         if (user) {
             const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
                     document.title = data["Show"];
-                    video_player.src = ShowList[data["Show"][data["Season"]][data["Episode"]]];
+                    video_player.src = data["Episode"];
+                    Cur_Show = data["Show"];
+                }else {
+                    document.title = "Spongebob";
+                    video_player.src = ShowList["Spongebob"]["1"][1];
+                    Cur_Show = "Spongebob";
                 }
             });
         }
