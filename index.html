@@ -102,13 +102,24 @@
             <div class="Sect4">
                 <image id="RShow4" src="src/BojackHorseman.jfif"></image>
                 <div id="RInfoBox4" class="RInfoBox4">
-                    <h3>A humanoid horse, BoJack Horseman -- lost in a sea of self-loathing and booze -- decides it's time for a comeback. Once the star of a '90s sitcom, in which he was the adoptive father of three orphaned kids (two girls and a boy). The show was the hottest thing around, then suddenly, was canceled. Now 18 years later, BoJack wants to regain his dignity. With the aid of a human sidekick and a feline ex-girlfriend who is his agent, he sets out to make it happen. But Hollywood is vastly different from those days, and getting used to stuff like Twitter may take some time. This first animated series from Netflix -- with plenty of references to sex, drugs and alcohol -- is not for the little ones.</h3>
+                    <h3>A humanoid horse, BoJack Horseman -- lost in a sea of self-loathing and booze -- decides it's
+                        time for a comeback. Once the star of a '90s sitcom, in which he was the adoptive father of
+                        three orphaned kids (two girls and a boy). The show was the hottest thing around, then suddenly,
+                        was canceled. Now 18 years later, BoJack wants to regain his dignity. With the aid of a human
+                        sidekick and a feline ex-girlfriend who is his agent, he sets out to make it happen. But
+                        Hollywood is vastly different from those days, and getting used to stuff like Twitter may take
+                        some time. This first animated series from Netflix -- with plenty of references to sex, drugs
+                        and alcohol -- is not for the little ones.</h3>
                 </div>
             </div>
             <div class="Sect5">
                 <image id="RShow5" src="src/Spongebob.jfif"></image>
                 <div id="RInfoBox5" class="RInfoBox5">
-                    <h3>A square yellow sponge named SpongeBob SquarePants lives in a pineapple with his pet snail, Gary, in the city of Bikini Bottom on the floor of the Pacific Ocean. He works as a fry cook at the Krusty Krab. During his time off, SpongeBob has a knack for attracting trouble with his starfish best friend, Patrick. Arrogant octopus Squidward Tentacles, SpongeBob's neighbor, dislikes SpongeBob because of his childlike behavior.</h3>
+                    <h3>A square yellow sponge named SpongeBob SquarePants lives in a pineapple with his pet snail,
+                        Gary, in the city of Bikini Bottom on the floor of the Pacific Ocean. He works as a fry cook at
+                        the Krusty Krab. During his time off, SpongeBob has a knack for attracting trouble with his
+                        starfish best friend, Patrick. Arrogant octopus Squidward Tentacles, SpongeBob's neighbor,
+                        dislikes SpongeBob because of his childlike behavior.</h3>
                 </div>
             </div>
             <div class="Sect6">
@@ -223,28 +234,6 @@
         }
     }
 
-    function temp(index) {
-        document.getElementById("ContinueWatching").children[index+1].style.visibility = "visible";
-        document.getElementById("ContinueWatching").children[index+1].children[0].src = Templates.Placeholder.img;
-        document.getElementById("ContinueWatching").children[index+1].children[1].children[0].innerHTML = Templates.Placeholder.desc;
-        document.getElementById("ContinueWatching").children[index+1].setAttribute("ShowValue", "N/A");
-    }
-
-    if (RecentlyWatched.length > 0) {
-        for (let index = 0; index < RecentlyWatched.length; index++) {
-                if (!Templates[RecentlyWatched[index]]) {
-                    temp(index);
-            }else{
-                document.getElementById("ContinueWatching").children[index+1].style.visibility = "visible";
-                document.getElementById("ContinueWatching").children[index+1].children[0].src = Templates[RecentlyWatched[index]].img;
-                document.getElementById("ContinueWatching").children[index+1].children[1].children[0].innerHTML = Templates[RecentlyWatched[index]].desc;
-                document.getElementById("ContinueWatching").children[index+1].setAttribute("ShowValue", RecentlyWatched[index]);
-            }
-        }
-    }else {
-        temp(0);
-    }
-
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
     import { getDatabase, set, ref, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
@@ -266,10 +255,10 @@
 
         pfp.onclick = function e() {
             if (user) {
-                if (window.confirm('Are you sure you want to logout?')){
+                if (window.confirm('Are you sure you want to logout?')) {
                     window.location.assign("auth/logout.html");
                 }
-            }else {
+            } else {
                 window.location.assign("auth/login.html");
             }
         }
@@ -277,12 +266,36 @@
         function Show_Change(show) {
             if (user && show !== "N/A") {
                 update(ref(Database, "users/" + user.uid + "/data"), {
-                    Show: show
+                    Show: show,
+                    Episode: 1,
+                    Season: 1
                 })
                 window.location.assign("Pages/EpisodeViewer.html")
             } else {
 
             }
+        }
+
+        function temp(index) {
+            document.getElementById("ContinueWatching").children[index + 1].style.visibility = "visible";
+            document.getElementById("ContinueWatching").children[index + 1].children[0].src = Templates.Placeholder.img;
+            document.getElementById("ContinueWatching").children[index + 1].children[1].children[0].innerHTML = Templates.Placeholder.desc;
+            document.getElementById("ContinueWatching").children[index + 1].setAttribute("ShowValue", "N/A");
+        }
+
+        if (RecentlyWatched.length > 0) {
+            for (let index = 0; index < RecentlyWatched.length; index++) {
+                if (!Templates[RecentlyWatched[index]]) {
+                    temp(index);
+                } else {
+                    document.getElementById("ContinueWatching").children[index + 1].style.visibility = "visible";
+                    document.getElementById("ContinueWatching").children[index + 1].children[0].src = Templates[RecentlyWatched[index]].img;
+                    document.getElementById("ContinueWatching").children[index + 1].children[1].children[0].innerHTML = Templates[RecentlyWatched[index]].desc;
+                    document.getElementById("ContinueWatching").children[index + 1].setAttribute("ShowValue", RecentlyWatched[index]);
+                }
+            }
+        } else {
+            temp(0);
         }
 
         function MouseOver(n) {
