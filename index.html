@@ -266,9 +266,7 @@
         function Show_Change(show) {
             if (user && show !== "N/A") {
                 update(ref(Database, "users/" + user.uid + "/data"), {
-                    Show: show,
-                    Episode: 1,
-                    Season: 1
+                    Show: show
                 })
                 setTimeout(() => {
                     window.location.assign("Pages/EpisodeViewer.html")

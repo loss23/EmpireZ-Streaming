@@ -69,14 +69,18 @@
             const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
-                    document.title = data["Show"];
-                    if (data["Episode"] !== 1) {
-                        video_player.src = data["Episode"];
-                    } else {
+                    if (data["Episode"] && data["Season"]) {
+                        document.title = data["Show"];
+                        if (data["Episode"] !== 1) {
+                            video_player.src = data["Episode"];
+                        } else {
+                            video_player.src = ShowList[data["Show"]][1][0];
+                        }
+                        Cur_Show = data["Show"];
+                    }else {
                         video_player.src = ShowList[data["Show"]][1][0];
                     }
-                    Cur_Show = data["Show"];
-                } else {
+                }else {
                     document.title = "Spongebob";
                     video_player.src = ShowList["Spongebob"]["1"][1];
                     Cur_Show = "Spongebob";
@@ -91,7 +95,7 @@
                 })
             }
 
-            
+
         }
     });
 
