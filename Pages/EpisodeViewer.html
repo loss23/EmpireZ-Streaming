@@ -62,9 +62,9 @@
 
     window.onunload = function e() {
         update(ref(Database, "users/" + user.uid + "/data"), {
-                    Show: Cur_Show,
-                    Episode: video_player.src,
-                    Season: 1
+            Show: Cur_Show,
+            Episode: document.getElementById("video_player").src,
+            Season: 1
         })
     }
 
