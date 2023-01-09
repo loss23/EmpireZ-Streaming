@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/video.css" rel="Stylesheet">
 </head>
+
 <body>
     <div class="header">
         <div class="navbar">
-                <ul class="Nav_Text">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="/info.html">Info</a></li>
-                </ul>
-                <image class="pfp" id="pfp" src="../src/image-removebg-preview.png"></image>
+            <ul class="Nav_Text">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="/info.html">Info</a></li>
+            </ul>
+            <image class="pfp" id="pfp" src="../src/image-removebg-preview.png"></image>
         </div>
     </div>
-    <video controls id="video_player" class="video_player" src="../src/RickAndMorty1.mp4" preload="metadata" poster="../src/EmpireZ-Banner.png"></video>
+    <video controls id="video_player" class="video_player" src="../src/RickAndMorty1.mp4" preload="metadata"
+        poster="../src/EmpireZ-Banner.png"></video>
 </body>
+
 </html>
 
 <script type="module">
@@ -60,15 +64,7 @@
     const Database = getDatabase(app);
     const auth = getAuth();
 
-    window.onunload = function e() {
-        update(ref(Database, "users/" + user.uid + "/data"), {
-            Show: Cur_Show,
-            Episode: document.getElementById("video_player").src,
-            Season: 1
-        })
-    }
-
-    auth.onAuthStateChanged(function(user) {
+    auth.onAuthStateChanged(function (user) {
         if (user) {
             const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
                 const data = d.val();
@@ -76,16 +72,26 @@
                     document.title = data["Show"];
                     if (data["Episode"] !== 1) {
                         video_player.src = data["Episode"];
-                    }else {
+                    } else {
                         video_player.src = ShowList[data["Show"]][1][0];
                     }
                     Cur_Show = data["Show"];
-                }else {
+                } else {
                     document.title = "Spongebob";
                     video_player.src = ShowList["Spongebob"]["1"][1];
                     Cur_Show = "Spongebob";
                 }
             });
+
+            window.onunload = function e() {
+                update(ref(Database, "users/" + user.uid + "/data"), {
+                    Show: Cur_Show,
+                    Episode: document.getElementById("video_player").src,
+                    Season: 1
+                })
+            }
+
+            
         }
     });
 
