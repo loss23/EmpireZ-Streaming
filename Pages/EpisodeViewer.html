@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/video.css" rel="Stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+                <ul class="Nav_Text">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="/info.html">Info</a></li>
+                </ul>
+                <image class="pfp" id="pfp" src="../src/image-removebg-preview.png"></image>
+        </div>
+    </div>
+    <video controls id="video_player" class="video_player" src="../src/RickAndMorty1.mp4" preload="metadata" poster="../src/EmpireZ-Banner.png"></video>
+</body>
+</html>
+
+<script type="module">
+
+    var Cur_Show;
+    var Season;
+    const ShowList = {
+        "RickAndMorty": {
+            "1": ["https://s3.tebi.io/index/RickAndMorty%20Ep1.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep2.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep3.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep4.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep5.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep6.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep7.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep8.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep9.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep10.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep11.mp4"]
+        },
+        "FamilyGuy": {
+            "1": ["https://s3.tebi.io/index/FamilyGuy1.mp4", "https://s3.tebi.io/index/FamilyGuy2.mp4"]
+        },
+        "Spongebob": {
+            "1": ["https://s3.tebi.io/index/Spongebob%20Ep1.mp4", "https://s3.tebi.io/index/Spongebob%20Ep2.mp4", "https://s3.tebi.io/index/Spongebob%20Ep3.mp4", "https://s3.tebi.io/index/Spongebob%20Ep4.mp4", "https://s3.tebi.io/index/Spongebob%20Ep5.mp4", "https://s3.tebi.io/index/Spongebob%20Ep6.mp4", "https://s3.tebi.io/index/Spongebob%20Ep7.mp4", "https://s3.tebi.io/index/Spongebob%20Ep8.mp4", "https://s3.tebi.io/index/Spongebob%20Ep9.mp4", "https://s3.tebi.io/index/Spongebob%20Ep10.mp4", "https://s3.tebi.io/index/Spongebob%20Ep11.mp4", "https://s3.tebi.io/index/Spongebob%20Ep12.mp4", "https://s3.tebi.io/index/Spongebob%20Ep13.mp4", "https://s3.tebi.io/index/Spongebob%20Ep14.mp4", "https://s3.tebi.io/index/Spongebob%20Ep15.mp4", "https://s3.tebi.io/index/Spongebob%20Ep16.mp4", "https://s3.tebi.io/index/Spongebob%20Ep17.mp4", "https://s3.tebi.io/index/Spongebob%20Ep18.mp4", "https://s3.tebi.io/index/Spongebob%20Ep19.mp4", "https://s3.tebi.io/index/Spongebob%20Ep20.mp4"],
+            "2": ["https://s3.tebi.io/index/SpongebobSeason2Ep1A.mp4"]
+        },
+        "BojackHorseman": {
+            "1": ["https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep1.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep2.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep3.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep4.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep5.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep6.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep7.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep8.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep9.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep10.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep11.mp4", "https://s3.tebi.io/index/BoJack%20Horseman/BoJack%20Horseman%20Ep12.mp4"]
+        },
+        "BreakingBad": {
+            "1": ["https://s3.tebi.io/index/BreakingBad/Breaking.Bad.S01E01.BDRip.x264-FGT.mp4", "https://s3.tebi.io/index/BreakingBad/Breaking.Bad.S01E02.BDRip.x264-FGT.mp4", "https://s3.tebi.io/index/BreakingBad/Breaking.Bad.S01E03.BDRip.x264-FGT.mp4", "https://s3.tebi.io/index/BreakingBad/Breaking.Bad.S01E04.BDRip.x264-FGT.mp4", "https://s3.tebi.io/index/BreakingBad/Breaking.Bad.S01E05.BDRip.x264-FGT.mp4", "https://s3.tebi.io/index/BreakingBad/Breaking.Bad.S01E06.BDRip.x264-FGT.mp4", "https://s3.tebi.io/index/BreakingBad/Breaking.Bad.S01E07.BDRip.x264-FGT.mp4"]
+        }
+    }
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { getDatabase, set, ref, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
+        authDomain: "empirez---login.firebaseapp.com",
+        databaseURL: "https://empirez---login-default-rtdb.firebaseio.com",
+        projectId: "empirez---login",
+        storageBucket: "empirez---login.appspot.com",
+        messagingSenderId: "151017816130",
+        appId: "1:151017816130:web:dc6602378da2eef2556ddb",
+    };
+    const app = initializeApp(firebaseConfig);
+    const Database = getDatabase(app);
+    const auth = getAuth();
+
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+
+            window.onunload = function e() {
+                update(ref(Database, "users/" + user.uid + "/data"), {
+                    Show: Cur_Show,
+                    Episode: video_player_get_episode.src,
+                    Season: 1
+                })
+            }
+
+            const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
+                const data = d.val();
+                if (data !== null && data !== undefined) {
+                    document.title = data["Show"];
+                    video_player.src = ShowList[data["Show"]][data["Season"]][data["Episode"]]
+                    Cur_Show = data["Show"]
+                }
+            });
+        }
+    });
+
+</script>

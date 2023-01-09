@@ -1,171 +1,102 @@
-body {
-    background-color: rgb(34, 34, 34);
-    overflow: hidden;
-}
-
-.logo {
-    width: 8rem;
-    z-index: 2555;
-    text-align: center;
-}
-
-
-
-.Background {
-    background-image: url("../src/Backimg.png");
-    background-repeat: space;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: block;
-
-    overflow-y: scroll;
-}
-
-
-.container {
-    background-color: #1b1b1b;
-    position: fixed;
-    text-align: center;
-
-    top: 0rem;
+body{
     width: 100%;
-    right: 0rem;
+    background-color: rgb(23, 23, 23);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    color: white;
+    background-color: rgba(37, 37, 37, 0.566);
+    position: absolute;
+    background-attachment: fixed;
+    height: 2.4rem;
+    top: 0rem;
     left: 0rem;
-    height: 4rem;
+    right: auto;
+    width: 101%;
 
-    z-index: 25;
-}
-
-header {
-  background: #1f1c1a;
-  height: 100rem;
-}
-
-header::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-
-.Nav_Text {
-    position: relative;
-
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2500;
 }
 
 .Nav_Text ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    list-style: none;
 }
 
 .Nav_Text li {
-    display: inline-block;
-    padding-top: 15px;
-    margin-right: 5rem;
-    left: 3rem;
-    position: relative;
+  display: inline-block;
+  left: -2rem;
+  top: -.7rem;
+  margin-right: 1.5rem;
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .Nav_Text a {
-  color: rgb(255, 255, 255);
+  color: rgb(88, 2, 163);
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 20px;
-  
+  font-size: 25px;
 }
 
 .Nav_Text a:hover {
-  color: rgb(0, 0, 0);
+  color: #6537AA;
 }
 .Nav_Text a::before {
-  content: '';
+  content: "";
   display: block;
   height: 5px;
-  background-color: rgb(0, 0, 0);
+  background-color: #6537AA;
 
   position: absolute;
   top: 0;
   width: 0%;
 
-  transition: all ease-in-out 250ms;
+  transition: all ease-in-out 50ms;
 }
 .Nav_Text a:hover::before {
   width: 100%;
 }
 
-.info_button {
-    color: rgb(255, 255, 255);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
-    text-align: left;
+.pfp {
+    max-width: 3%;
+    width: auto;
+    position: absolute;
+    top: 0rem;
+    right: 1rem;
+    transition: 45ms;
+}
+
+.pfp:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .pfp {
+        width: 25%;
+        position: absolute;
+        top: 0rem;
+        right: 1rem;
+    }
+}
+
+.body{
+    text-align: center;
+}
+.body h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
-    top: -6.6rem;
-    left: 21.3rem;
+    color:white;
+    top: 1.2rem;
 }
-
-.info_button:hover {
-    color: rgb(144, 235, 255);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
-    text-align: left;
+.body h3 {
+    color:white;
+    top: .5rem;
     position: relative;
-    top: -6.6rem;
-    left: 21.3rem;
-    cursor: grab;
-}
-
-.Center {
-  background-color: #1b1b1bc3;
-  color: rgb(255, 255, 255);
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 100%;
-
-  position: relative;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
-
-  width: 75%;
-  height: 60%;
-  top: 10rem;
-  left: 12%;
-
-  text-align: center;
-  border-radius: 10px;
-
-}
-
-
-.Ads {
-    position: absolute;
-    z-index: 50;
-    bottom: -.5rem;
-    left: 24.5rem;
-}
-
-.Ads2 {
-    position: absolute;
-    z-index: 50;
-    bottom: 5rem;
-    left: 10rem;
-}
-
-.Ads3 {
-    position: absolute;
-    z-index: 50;
-    bottom: 5rem;
-    left: 30rem;
-}
-
-.Ads4 {
-    position: absolute;
-    z-index: 50;
-    bottom: 5rem;
-    left: 50rem;
-}
-
-.paypal-button {
-  position: absolute;
-  z-index: 21412412450;
 }

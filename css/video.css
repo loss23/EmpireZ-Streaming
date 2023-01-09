@@ -1,0 +1,132 @@
+body{
+    width: 100%;
+    background-color: rgb(23, 23, 23);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    background-color: rgba(37, 37, 37, 0.073);
+    position: absolute;
+    height: 6%;
+    top: 0rem;
+    left: 0rem;
+    right: auto;
+    width: 100%;
+
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    z-index: 2500;
+    transition: 825ms;
+}
+.navbar:hover {
+    background-color: rgba(37, 37, 37, 0.749)
+}
+
+.Nav_Text ul {
+    list-style: none;
+}
+
+.Nav_Text li {
+  display: inline-block;
+  left: -2rem;
+  top: -.7rem;
+  margin-right: 1.5rem;
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Nav_Text a {
+  color: rgb(88, 2, 163);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 25px;
+}
+
+.Nav_Text a:hover {
+  color: #6537AA;
+}
+.Nav_Text a::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background-color: #6537AA;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 50ms;
+}
+.Nav_Text a:hover::before {
+  width: 100%;
+}
+
+.video_player {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: -5rem;
+    left: -0.5rem;
+}
+
+.pfp {
+    max-width: 3%;
+    width: auto;
+    position: absolute;
+    top: 0rem;
+    right: 1rem;
+}
+
+
+@media only screen and (max-width: 1090px) {
+    body {
+        width: 100%;
+        background-color: rgb(23, 23, 23);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .video_player {
+        width: 105%;
+        position: relative;
+        top: -2rem;
+        left: -0.5rem;
+    }
+    .pfp {
+        width: 25%;
+        position: absolute;
+        top: 0rem;
+        right: 1rem;
+    }
+}
+
+@media only screen and (max-width: 651px) {
+    body {
+        width: 100%;
+        background-color: rgb(23, 23, 23);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .video_player {
+        width: 105%;
+        position: relative;
+        top: 5rem;
+        left: -0.5rem;
+    }
+    .pfp {
+        width: 25%;
+        position: absolute;
+        top: 0rem;
+        right: 1rem;
+    }
+}
