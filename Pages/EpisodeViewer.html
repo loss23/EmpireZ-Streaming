@@ -62,21 +62,11 @@
 
     auth.onAuthStateChanged(function(user) {
         if (user) {
-
-            window.onunload = function e() {
-                update(ref(Database, "users/" + user.uid + "/data"), {
-                    Show: Cur_Show,
-                    Episode: video_player_get_episode.src,
-                    Season: 1
-                })
-            }
-
             const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
                     document.title = data["Show"];
-                    video_player.src = ShowList[data["Show"]][data["Season"]][data["Episode"]]
-                    Cur_Show = data["Show"]
+                    video_player.src = ShowList[data["Show"][data["Season"]][data["Episode"]]];
                 }
             });
         }
