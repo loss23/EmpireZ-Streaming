@@ -264,16 +264,23 @@
         }
 
         function Show_Change(show) {
-            if (user && show !== "N/A") {
-                update(ref(Database, "users/" + user.uid + "/data"), {
-                    Show: show
-                })
-                setTimeout(() => {
-                    window.location.assign("Pages/EpisodeViewer.html")
-                }, 500);
-            } else {
-
-            }
+            const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
+                const data = d.val();
+                if (data !== null) {
+                    if (data["Show"] !== show) {
+                        update(ref(Database, "users/" + user.uid + "/data"), {
+                            Show: show,
+                            Episode: 1,
+                            Season: 1
+                        })
+                        setTimeout(() => {
+                            window.location.assign("Pages/EpisodeViewer.html")
+                        }, 500);
+                    } else {
+                        window.location.assign("Pages/EpisodeViewer.html")
+                    }
+                }
+            })
         }
 
         function temp(index) {
