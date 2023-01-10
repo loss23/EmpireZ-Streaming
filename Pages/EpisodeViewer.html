@@ -65,18 +65,24 @@
     const auth = getAuth();
 
     auth.onAuthStateChanged(function (user) {
+        const data2 = null;
         if (user) {
-            const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
+            const UserData2 = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d2) => {
+                data2 = d2.val();
+            });
+
+            const UserData = ref(Database, 'users/' + user.uid + "/data/" + show); onValue(UserData, (d) => {
                 const data = d.val();
                 if (data !== null && data !== undefined) {
                     if (data["Episode"] && data["Season"]) {
-                        document.title = data["Show"];
+                        document.title = data2["Show"];
                         if (data["Episode"] !== 1) {
                             video_player.src = data["Episode"];
                         } else {
-                            video_player.src = ShowList[data["Show"]][1][0];
+                            video_player.src = ShowList[data2["Show"]][1][0];
                         }
                         Cur_Show = data["Show"];
+                        video_player.currentTime = data["TimeStamp"];
                     }else {
                         video_player.src = ShowList[data["Show"]][1][0];
                     }
@@ -88,10 +94,11 @@
             });
 
             window.onunload = function e() {
-                update(ref(Database, "users/" + user.uid + "/data"), {
+                update(ref(Database, "users/" + user.uid + "/data/" + show), {
                     Show: Cur_Show,
                     Episode: document.getElementById("video_player").src,
-                    Season: 1
+                    Season: 1,
+                    TimeStamp: document.getElementById("video_player").currentTime,
                 })
             }
 

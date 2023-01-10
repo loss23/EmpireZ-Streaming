@@ -268,10 +268,13 @@
                 const data = d.val();
                 if (data !== null) {
                     if (data["Show"] !== show) {
-                        update(ref(Database, "users/" + user.uid + "/data"), {
-                            Show: show,
+                        update(ref(Database, "users/" + user.uid + "/data/" + show), {
                             Episode: 1,
-                            Season: 1
+                            Season: 1,
+                            TimeStamp: 0
+                        })
+                        update(ref(Database, "users/" + user.uid + "/data"), {
+                            Show: show
                         })
                         setTimeout(() => {
                             window.location.assign("Pages/EpisodeViewer.html")
