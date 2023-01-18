@@ -239,6 +239,7 @@
         if (!window.localStorage.getItem(show)) {
             window.localStorage.setItem(show + "EP", "0");
             window.localStorage.setItem(show + "S", "1");
+            window.localStorage.setItem(show + "TS", "0");
         }
         window.location.assign("Pages/EpisodeViewer.html");
     }
