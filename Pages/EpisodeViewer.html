@@ -28,6 +28,7 @@
 
     var Cur_Show;
     var Season;
+    var Episode;
     const ShowList = {
         "RickAndMorty": {
             "1": ["https://s3.tebi.io/index/RickAndMorty%20Ep1.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep2.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep3.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep4.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep5.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep6.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep7.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep8.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep9.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep10.mp4", "https://s3.tebi.io/index/RickAndMorty%20Ep11.mp4"]
@@ -48,7 +49,9 @@
     }
 
     if (window.localStorage.getItem("Show") !== null) {
-        video_player.src = ShowList[window.localStorage.getItem("Show")[1][1]]
+        Season = window.localStorage.getItem(window.localStorage.getItem("Show")).replace("s", "").replace("e1", "");
+        Episode = window.localStorage.getItem(window.localStorage.getItem("Show")).replace("e", "").replace("s1", "");
+        video_player.src = ShowList[window.localStorage.getItem("Show")][parseInt(Season)][parseInt(Episode)]
     }
 
 </script>
