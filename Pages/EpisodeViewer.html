@@ -49,8 +49,8 @@
     }
 
     if (window.localStorage.getItem("Show") !== null) {
-        Season = window.localStorage.getItem(window.localStorage.getItem("Show")).replace("s", "").replace("e1", "");
-        Episode = window.localStorage.getItem(window.localStorage.getItem("Show")).replace("e", "").replace("s1", "");
+        Season = window.localStorage.getItem(window.localStorage.getItem("ShowEP"))
+        Episode = window.localStorage.getItem(window.localStorage.getItem("ShowS"))
         video_player.src = ShowList[window.localStorage.getItem("Show")][parseInt(Season)][parseInt(Episode)]
     }
 
