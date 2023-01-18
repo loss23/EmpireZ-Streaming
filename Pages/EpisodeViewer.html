@@ -47,63 +47,8 @@
         }
     }
 
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-    import { getDatabase, set, ref, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
-        authDomain: "empirez---login.firebaseapp.com",
-        databaseURL: "https://empirez---login-default-rtdb.firebaseio.com",
-        projectId: "empirez---login",
-        storageBucket: "empirez---login.appspot.com",
-        messagingSenderId: "151017816130",
-        appId: "1:151017816130:web:dc6602378da2eef2556ddb",
-    };
-    const app = initializeApp(firebaseConfig);
-    const Database = getDatabase(app);
-    const auth = getAuth();
-
-    auth.onAuthStateChanged(function (user) {
-        const data2 = null;
-        if (user) {
-            const UserData2 = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d2) => {
-                data2 = d2.val();
-            });
-
-            const UserData = ref(Database, 'users/' + user.uid + "/data/" + show); onValue(UserData, (d) => {
-                const data = d.val();
-                if (data !== null && data !== undefined) {
-                    if (data["Episode"] && data["Season"]) {
-                        document.title = data2["Show"];
-                        if (data["Episode"] !== 1) {
-                            video_player.src = data["Episode"];
-                        } else {
-                            video_player.src = ShowList[data2["Show"]][1][0];
-                        }
-                        Cur_Show = data["Show"];
-                        video_player.currentTime = data["TimeStamp"];
-                    }else {
-                        video_player.src = ShowList[data["Show"]][1][0];
-                    }
-                }else {
-                    document.title = "Spongebob";
-                    video_player.src = ShowList["Spongebob"]["1"][1];
-                    Cur_Show = "Spongebob";
-                }
-            });
-
-            window.onunload = function e() {
-                update(ref(Database, "users/" + user.uid + "/data/" + show), {
-                    Show: Cur_Show,
-                    Episode: document.getElementById("video_player").src,
-                    Season: 1,
-                    TimeStamp: document.getElementById("video_player").currentTime,
-                })
-            }
-
-
-        }
-    });
+    if (window.localStorage.getItem("Show") !== null) {
+        video_player.src = ShowList[window.localStorage.getItem("Show")[1][1]]
+    }
 
 </script>

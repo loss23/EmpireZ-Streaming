@@ -234,292 +234,243 @@
         }
     }
 
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-    import { getDatabase, set, ref, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    function Show_Change(show) {
+        window.localStorage.setItem("Show",show)
+    }
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyDjzRH-b7H8WC22RJ_4EToUFYcbfYu5ntQ",
-        authDomain: "empirez---login.firebaseapp.com",
-        databaseURL: "https://empirez---login-default-rtdb.firebaseio.com",
-        projectId: "empirez---login",
-        storageBucket: "empirez---login.appspot.com",
-        messagingSenderId: "151017816130",
-        appId: "1:151017816130:web:dc6602378da2eef2556ddb",
-    };
-    const app = initializeApp(firebaseConfig);
-    const Database = getDatabase(app);
-    const auth = getAuth();
+    function temp(index) {
+        document.getElementById("ContinueWatching").children[index + 1].style.visibility = "visible";
+        document.getElementById("ContinueWatching").children[index + 1].children[0].src = Templates.Placeholder.img;
+        document.getElementById("ContinueWatching").children[index + 1].children[1].children[0].innerHTML = Templates.Placeholder.desc;
+        document.getElementById("ContinueWatching").children[index + 1].setAttribute("ShowValue", "N/A");
+    }
 
-    auth.onAuthStateChanged(function (user) {
-
-        pfp.onclick = function e() {
-            if (user) {
-                if (window.confirm('Are you sure you want to logout?')) {
-                    window.location.assign("auth/logout.html");
-                }
+    if (RecentlyWatched.length > 0) {
+        for (let index = 0; index < RecentlyWatched.length; index++) {
+            if (!Templates[RecentlyWatched[index]]) {
+                temp(index);
             } else {
-                window.location.assign("auth/login.html");
+                document.getElementById("ContinueWatching").children[index + 1].style.visibility = "visible";
+                document.getElementById("ContinueWatching").children[index + 1].children[0].src = Templates[RecentlyWatched[index]].img;
+                document.getElementById("ContinueWatching").children[index + 1].children[1].children[0].innerHTML = Templates[RecentlyWatched[index]].desc;
+                document.getElementById("ContinueWatching").children[index + 1].setAttribute("ShowValue", RecentlyWatched[index]);
             }
         }
+    } else {
+        temp(0);
+    }
 
-        function Show_Change(show) {
-            const UserData = ref(Database, 'users/' + user.uid + "/data"); onValue(UserData, (d) => {
-                const data = d.val();
-                if (data !== null) {
-                    if (data["Show"] !== show) {
-                        update(ref(Database, "users/" + user.uid + "/data/" + show), {
-                            Episode: 1,
-                            Season: 1,
-                            TimeStamp: 0
-                        })
-                        update(ref(Database, "users/" + user.uid + "/data"), {
-                            Show: show
-                        })
-                        setTimeout(() => {
-                            window.location.assign("Pages/EpisodeViewer.html")
-                        }, 500);
-                    } else {
-                        window.location.assign("Pages/EpisodeViewer.html")
-                    }
-                }
-            })
-        }
+    function MouseOver(n) {
+        setTimeout(() => {
+            document.getElementById("InfoBox" + n).style.visibility = "Visible";
+        }, 5);
+    }
+    function MouseLeave(n) {
+        setTimeout(() => {
+            document.getElementById("InfoBox" + n).style.visibility = "Hidden";
+        }, 5);
+    }
 
-        function temp(index) {
-            document.getElementById("ContinueWatching").children[index + 1].style.visibility = "visible";
-            document.getElementById("ContinueWatching").children[index + 1].children[0].src = Templates.Placeholder.img;
-            document.getElementById("ContinueWatching").children[index + 1].children[1].children[0].innerHTML = Templates.Placeholder.desc;
-            document.getElementById("ContinueWatching").children[index + 1].setAttribute("ShowValue", "N/A");
-        }
+    function RMouseOver(n) {
+        setTimeout(() => {
+            document.getElementById("RInfoBox" + n).style.visibility = "Visible";
+        }, 5);
+    }
+    function RMouseLeave(n) {
+        setTimeout(() => {
+            document.getElementById("RInfoBox" + n).style.visibility = "Hidden";
+        }, 5);
+    }
 
-        if (RecentlyWatched.length > 0) {
-            for (let index = 0; index < RecentlyWatched.length; index++) {
-                if (!Templates[RecentlyWatched[index]]) {
-                    temp(index);
-                } else {
-                    document.getElementById("ContinueWatching").children[index + 1].style.visibility = "visible";
-                    document.getElementById("ContinueWatching").children[index + 1].children[0].src = Templates[RecentlyWatched[index]].img;
-                    document.getElementById("ContinueWatching").children[index + 1].children[1].children[0].innerHTML = Templates[RecentlyWatched[index]].desc;
-                    document.getElementById("ContinueWatching").children[index + 1].setAttribute("ShowValue", RecentlyWatched[index]);
-                }
-            }
-        } else {
-            temp(0);
-        }
+    function OMouseOver(n) {
+        setTimeout(() => {
+            document.getElementById("OInfoBox" + n).style.visibility = "Visible";
+        }, 5);
+    }
+    function OMouseLeave(n) {
+        setTimeout(() => {
+            document.getElementById("OInfoBox" + n).style.visibility = "Hidden";
+        }, 5);
+    }
 
-        function MouseOver(n) {
-            setTimeout(() => {
-                document.getElementById("InfoBox" + n).style.visibility = "Visible";
-            }, 5);
-        }
-        function MouseLeave(n) {
-            setTimeout(() => {
-                document.getElementById("InfoBox" + n).style.visibility = "Hidden";
-            }, 5);
-        }
+    Show1.onclick = function e() {
+        Show_Change(document.getElementById("Sect").getAttribute("ShowValue"));
+    }
+    Show1.onmouseover = function e() {
+        MouseOver(1);
+    }
+    Show1.onmouseleave = function e() {
+        MouseLeave(1);
+    }
 
-        function RMouseOver(n) {
-            setTimeout(() => {
-                document.getElementById("RInfoBox" + n).style.visibility = "Visible";
-            }, 5);
-        }
-        function RMouseLeave(n) {
-            setTimeout(() => {
-                document.getElementById("RInfoBox" + n).style.visibility = "Hidden";
-            }, 5);
-        }
+    Show2.onclick = function e() {
+        Show_Change(document.getElementById("Sect2").getAttribute("ShowValue"));
+    }
+    Show2.onmouseover = function e() {
+        MouseOver(2);
+    }
+    Show2.onmouseleave = function e() {
+        MouseLeave(2);
+    }
 
-        function OMouseOver(n) {
-            setTimeout(() => {
-                document.getElementById("OInfoBox" + n).style.visibility = "Visible";
-            }, 5);
-        }
-        function OMouseLeave(n) {
-            setTimeout(() => {
-                document.getElementById("OInfoBox" + n).style.visibility = "Hidden";
-            }, 5);
-        }
+    Show3.onclick = function e() {
+        Show_Change(document.getElementById("Sect3").getAttribute("ShowValue"));
+    }
+    Show3.onmouseover = function e() {
+        MouseOver(3);
+    }
+    Show3.onmouseleave = function e() {
+        MouseLeave(3);
+    }
 
-        Show1.onclick = function e() {
-            Show_Change(document.getElementById("Sect").getAttribute("ShowValue"));
-        }
-        Show1.onmouseover = function e() {
-            MouseOver(1);
-        }
-        Show1.onmouseleave = function e() {
-            MouseLeave(1);
-        }
+    Show4.onclick = function e() {
+        Show_Change(document.getElementById("Sect4").getAttribute("ShowValue"));
+    }
+    Show4.onmouseover = function e() {
+        MouseOver(4);
+    }
+    Show4.onmouseleave = function e() {
+        MouseLeave(4);
+    }
 
-        Show2.onclick = function e() {
-            Show_Change(document.getElementById("Sect2").getAttribute("ShowValue"));
-        }
-        Show2.onmouseover = function e() {
-            MouseOver(2);
-        }
-        Show2.onmouseleave = function e() {
-            MouseLeave(2);
-        }
+    Show5.onclick = function e() {
+        Show_Change(document.getElementById("Sect5").getAttribute("ShowValue"));
+    }
+    Show5.onmouseover = function e() {
+        MouseOver(5);
+    }
+    Show5.onmouseleave = function e() {
+        MouseLeave(5);
+    }
 
-        Show3.onclick = function e() {
-            Show_Change(document.getElementById("Sect3").getAttribute("ShowValue"));
-        }
-        Show3.onmouseover = function e() {
-            MouseOver(3);
-        }
-        Show3.onmouseleave = function e() {
-            MouseLeave(3);
-        }
-
-        Show4.onclick = function e() {
-            Show_Change(document.getElementById("Sect4").getAttribute("ShowValue"));
-        }
-        Show4.onmouseover = function e() {
-            MouseOver(4);
-        }
-        Show4.onmouseleave = function e() {
-            MouseLeave(4);
-        }
-
-        Show5.onclick = function e() {
-            Show_Change(document.getElementById("Sect5").getAttribute("ShowValue"));
-        }
-        Show5.onmouseover = function e() {
-            MouseOver(5);
-        }
-        Show5.onmouseleave = function e() {
-            MouseLeave(5);
-        }
-
-        Show6.onclick = function e() {
-            Show_Change(document.getElementById("Sect6").getAttribute("ShowValue"));
-        }
-        Show6.onmouseover = function e() {
-            MouseOver(6);
-        }
-        Show6.onmouseleave = function e() {
-            MouseLeave(6);
-        }
+    Show6.onclick = function e() {
+        Show_Change(document.getElementById("Sect6").getAttribute("ShowValue"));
+    }
+    Show6.onmouseover = function e() {
+        MouseOver(6);
+    }
+    Show6.onmouseleave = function e() {
+        MouseLeave(6);
+    }
 
 
-        RShow1.onclick = function e() {
-            Show_Change("BreakingBad");
-        }
-        RShow1.onmouseover = function e() {
-            RMouseOver(1);
-        }
-        RShow1.onmouseleave = function e() {
-            RMouseLeave(1);
-        }
+    RShow1.onclick = function e() {
+        Show_Change("BreakingBad");
+    }
+    RShow1.onmouseover = function e() {
+        RMouseOver(1);
+    }
+    RShow1.onmouseleave = function e() {
+        RMouseLeave(1);
+    }
 
-        RShow2.onclick = function e() {
-            Show_Change("RickAndMorty");
-        }
-        RShow2.onmouseover = function e() {
-            RMouseOver(2);
-        }
-        RShow2.onmouseleave = function e() {
-            RMouseLeave(2);
-        }
+    RShow2.onclick = function e() {
+        Show_Change("RickAndMorty");
+    }
+    RShow2.onmouseover = function e() {
+        RMouseOver(2);
+    }
+    RShow2.onmouseleave = function e() {
+        RMouseLeave(2);
+    }
 
-        RShow3.onclick = function e() {
-            Show_Change("FamilyGuy");
-        }
-        RShow3.onmouseover = function e() {
-            RMouseOver(3);
-        }
-        RShow3.onmouseleave = function e() {
-            RMouseLeave(3);
-        }
+    RShow3.onclick = function e() {
+        Show_Change("FamilyGuy");
+    }
+    RShow3.onmouseover = function e() {
+        RMouseOver(3);
+    }
+    RShow3.onmouseleave = function e() {
+        RMouseLeave(3);
+    }
 
-        RShow4.onclick = function e() {
-            Show_Change("BojackHorseman");
-        }
-        RShow4.onmouseover = function e() {
-            RMouseOver(4);
-        }
-        RShow4.onmouseleave = function e() {
-            RMouseLeave(4);
-        }
+    RShow4.onclick = function e() {
+        Show_Change("BojackHorseman");
+    }
+    RShow4.onmouseover = function e() {
+        RMouseOver(4);
+    }
+    RShow4.onmouseleave = function e() {
+        RMouseLeave(4);
+    }
 
-        RShow5.onclick = function e() {
-            Show_Change("Spongebob");
-        }
-        RShow5.onmouseover = function e() {
-            RMouseOver(5);
-        }
-        RShow5.onmouseleave = function e() {
-            RMouseLeave(5);
-        }
+    RShow5.onclick = function e() {
+        Show_Change("Spongebob");
+    }
+    RShow5.onmouseover = function e() {
+        RMouseOver(5);
+    }
+    RShow5.onmouseleave = function e() {
+        RMouseLeave(5);
+    }
 
-        RShow6.onclick = function e() {
-            Show_Change("N/A");
-        }
-        RShow6.onmouseover = function e() {
-            RMouseOver(6);
-        }
-        RShow6.onmouseleave = function e() {
-            RMouseLeave(6);
-        }
+    RShow6.onclick = function e() {
+        Show_Change("N/A");
+    }
+    RShow6.onmouseover = function e() {
+        RMouseOver(6);
+    }
+    RShow6.onmouseleave = function e() {
+        RMouseLeave(6);
+    }
 
-        OShow1.onclick = function e() {
-            Show_Change("BreakingBad");
-        }
-        OShow1.onmouseover = function e() {
-            OMouseOver(1);
-        }
-        OShow1.onmouseleave = function e() {
-            OMouseLeave(1);
-        }
+    OShow1.onclick = function e() {
+        Show_Change("BreakingBad");
+    }
+    OShow1.onmouseover = function e() {
+        OMouseOver(1);
+    }
+    OShow1.onmouseleave = function e() {
+        OMouseLeave(1);
+    }
 
-        OShow2.onclick = function e() {
-            Show_Change("BreakingBad");
-        }
-        OShow2.onmouseover = function e() {
-            OMouseOver(2);
-        }
-        OShow2.onmouseleave = function e() {
-            OMouseLeave(2);
-        }
+    OShow2.onclick = function e() {
+        Show_Change("BreakingBad");
+    }
+    OShow2.onmouseover = function e() {
+        OMouseOver(2);
+    }
+    OShow2.onmouseleave = function e() {
+        OMouseLeave(2);
+    }
 
-        OShow3.onclick = function e() {
-            Show_Change("BreakingBad");
-        }
-        OShow3.onmouseover = function e() {
-            OMouseOver(3);
-        }
-        OShow3.onmouseleave = function e() {
-            OMouseLeave(3);
-        }
+    OShow3.onclick = function e() {
+        Show_Change("BreakingBad");
+    }
+    OShow3.onmouseover = function e() {
+        OMouseOver(3);
+    }
+    OShow3.onmouseleave = function e() {
+        OMouseLeave(3);
+    }
 
-        OShow4.onclick = function e() {
-            Show_Change("BreakingBad");
-        }
-        OShow4.onmouseover = function e() {
-            OMouseOver(4);
-        }
-        OShow4.onmouseleave = function e() {
-            OMouseLeave(4);
-        }
+    OShow4.onclick = function e() {
+        Show_Change("BreakingBad");
+    }
+    OShow4.onmouseover = function e() {
+        OMouseOver(4);
+    }
+    OShow4.onmouseleave = function e() {
+        OMouseLeave(4);
+    }
 
-        OShow5.onclick = function e() {
-            Show_Change("BreakingBad");
-        }
-        OShow5.onmouseover = function e() {
-            OMouseOver(5);
-        }
-        OShow5.onmouseleave = function e() {
-            OMouseLeave(5);
-        }
+    OShow5.onclick = function e() {
+        Show_Change("BreakingBad");
+    }
+    OShow5.onmouseover = function e() {
+        OMouseOver(5);
+    }
+    OShow5.onmouseleave = function e() {
+        OMouseLeave(5);
+    }
 
-        OShow6.onclick = function e() {
-            Show_Change("BreakingBad");
-        }
-        OShow6.onmouseover = function e() {
-            OMouseOver(6);
-        }
-        OShow6.onmouseleave = function e() {
-            OMouseLeave(6);
-        }
-    });
+    OShow6.onclick = function e() {
+        Show_Change("BreakingBad");
+    }
+    OShow6.onmouseover = function e() {
+        OMouseOver(6);
+    }
+    OShow6.onmouseleave = function e() {
+        OMouseLeave(6);
+    }
 </script>
