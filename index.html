@@ -237,7 +237,7 @@
     function Show_Change(show) {
         window.localStorage.setItem("Show", show);
         if (!window.localStorage.getItem(show)) {
-            window.localStorage.setItem(show, "e1 s1");
+            window.localStorage.setItem(show, "e0 s1");
         }
         window.location.assign("Pages/EpisodeViewer.html");
     }
