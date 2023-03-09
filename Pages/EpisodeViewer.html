@@ -24,7 +24,7 @@
 
 </html>
 
-<script type="module">
+<script>
 
     var Cur_Show;
     var Season;
@@ -48,12 +48,27 @@
         }
     }
 
+    window.onunload = function e() {
+        window.localStorage.setItem(Cur_Show + "EP", Episode);
+        window.localStorage.setItem(Cur_Show + "S", "1");
+        window.localStorage.setItem(Cur_Show + "TS", video_player.currentTime);
+    }
+
     if (window.localStorage.getItem("Show") !== null) {
         Cur_Show = window.localStorage.getItem("Show");
         Season = window.localStorage.getItem(Cur_Show + "S");
         Episode = window.localStorage.getItem(Cur_Show + "EP");
         video_player.currentTime = parseInt(window.localStorage.getItem(Cur_Show + "TS"));
         video_player.src = ShowList[window.localStorage.getItem("Show")][parseInt(Season)][parseInt(Episode)];
+
+        document.title =  "|" + Cur_Show +  "| S." + parseInt(Season) + " Ep. " + parseInt(Episode) + 1;
+    }
+
+    video_player.onended = function e() {
+        Episode = parseInt(Episode);
+        Episode++;
+        video_player.src = ShowList[window.localStorage.getItem("Show")][parseInt(Season)][parseInt(Episode)];
+        video_player.currentTime = 0;
     }
 
 </script>
